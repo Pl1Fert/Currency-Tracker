@@ -1,0 +1,49 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "prettier", "simple-import-sort", "import"],
+    "extends": ["airbnb", "airbnb-typescript", "plugin:@typescript-eslint/recommended", "prettier"],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.d.ts"],
+            "extends": [
+                "plugin:@typescript-eslint/recommended",
+                "plugin:@typescript-eslint/recommended-requiring-type-checking"
+            ],
+            "parserOptions": {
+                "project": ["./tsconfig.json"]
+            }
+        }
+    ],
+    "parserOptions": {
+        "project": ["./tsconfig.json"],
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+        "react/require-default-props": "off",
+        "prettier/prettier": "error",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "no-empty": "off",
+        "import/prefer-default-export": "off",
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ]
+    }
+}
