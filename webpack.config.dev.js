@@ -1,4 +1,3 @@
-const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const config = require("./webpack.config.js");
 const path = require("path");
@@ -10,6 +9,6 @@ module.exports = merge(config, {
         static: path.join(__dirname, "dist"),
         compress: true,
         port: 4000,
+        historyApiFallback: true,
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()],
 });

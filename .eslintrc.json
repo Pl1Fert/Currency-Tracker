@@ -34,10 +34,19 @@
         "react/no-unknown-property": ["error", { "ignore": ["css"] }],
         "react/require-default-props": "off",
         "prettier/prettier": "error",
-        "@typescript-eslint/no-namespace": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
         "no-empty": "off",
         "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "": "never",
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
         "react/function-component-definition": [
             2,
             {

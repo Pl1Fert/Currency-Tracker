@@ -37,8 +37,8 @@
             "@services/*": ["./src/services/*"],
             "@store/*": ["./src/store/*"],
             "@types/*": ["./src/types/*"]
-        }
+        },
+        "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },
-    "include": ["./src/**/*"],
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "include": ["./src/**/*"]
 }

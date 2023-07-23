@@ -1,13 +1,15 @@
-const webpack = require("webpack");
+const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, "./dist"),
         filename: "bundle.js",
+        publicPath: "/",
     },
     plugins: [
         new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ["dist"] }),
@@ -17,10 +19,17 @@ module.exports = {
         }),
     ],
     module: {
+        strictExportPresence: true,
         rules: [
             {
                 test: /\.s[ac]ss$/i,
-                use: ["style-loader", "css-loader", "sass-loader"],
+                use: [
+                    process.env.NODE_ENV === "production"
+                        ? MiniCssExtractPlugin.loader
+                        : "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ],
             },
             {
                 test: /\.(js|jsx)$/,
