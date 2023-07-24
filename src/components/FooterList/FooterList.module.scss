@@ -1,8 +1,14 @@
+@import "../../styles/colors";
+
 .title {
     margin-bottom: 30px;
 
     font-weight: 400;
     font-size: 28px;
+
+    &_dark_theme {
+        color: $white-font;
+    }
 }
 
 .list {

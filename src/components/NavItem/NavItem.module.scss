@@ -3,7 +3,7 @@
 .navItem {
     font-size: 20px;
 
-    color: $grey;
+    color: $black-font;
     transition: all 0.3s linear;
 
     &::after {
@@ -12,18 +12,28 @@
         width: 0;
         height: 2px;
 
-        background: $grey-font;
+        background: $black-font;
         transition: all 0.3s linear;
     }
 
     &:hover::after {
         width: 100%;
     }
-}
 
-.navItem_active {
-    color: black;
+    &_active {
+        cursor: default;
+        pointer-events: none;
 
-    cursor: default;
-    pointer-events: none;
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &_dark_theme {
+        color: $white-font;
+
+        &::after {
+            background: $white-font;
+        }
+    }
 }
