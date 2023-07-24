@@ -1,0 +1,51 @@
+@import "../../styles/colors";
+
+.top {
+    padding-top: 50px;
+    padding-bottom: 80px;
+
+    display: flex;
+    align-items: center;
+    background: linear-gradient(45deg, $header-gradient-begin, $header-gradient-end);
+
+    &_content {
+        width: 50%;
+    }
+
+    &_text {
+        margin-left: auto;
+        max-width: 60%;
+
+        text-align: center;
+        font-size: 25px;
+
+        color: $light-grey-font;
+    }
+
+    &_title {
+        padding-right: 50px;
+
+        font-weight: 600;
+        font-size: 65px;
+        text-align: right;
+
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            $title-gradient-begin,
+            $title-gradient-middle,
+            $title-gradient-end
+        );
+    }
+
+    &_image_block {
+        width: 50%;
+    }
+
+    &_image {
+        width: 300px;
+        height: 300px;
+    }
+}

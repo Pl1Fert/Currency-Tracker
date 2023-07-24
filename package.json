@@ -86,8 +86,7 @@
         "not op_mini all"
     ],
     "lint-staged": {
-        "*.ts": "npx tsc --noEmit",
-        "*.{js,jsx,ts,tsx}": "npx eslint",
-        "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
+        "*.{js,jsx,ts,tsx}": "yarn eslint",
+        "*.{js,jsx,ts,tsx,html,css}": "yarn prettier --check"
     }
 }
