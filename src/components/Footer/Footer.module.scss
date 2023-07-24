@@ -1,0 +1,65 @@
+@import "../../styles/colors";
+
+.footer {
+    margin-top: 50px;
+    padding-bottom: 25px;
+
+    text-align: center;
+
+    &_row {
+        margin-bottom: 50px;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        text-align: left;
+    }
+
+    &_content {
+        width: 42%;
+    }
+
+    &_title_row {
+        margin-bottom: 30px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &_title {
+        font-weight: 600;
+        font-size: 26px;
+
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(
+            to right,
+            $title-gradient-begin,
+            $title-gradient-middle,
+            $title-gradient-end
+        );
+    }
+
+    &_text {
+        font-size: 24px;
+    }
+
+    &_accordion {
+        width: 50%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_sign {
+        font-size: 24px;
+        font-weight: 400;
+
+        color: $dark-grey-font;
+    }
+}
