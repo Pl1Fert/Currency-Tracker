@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Link, useMatch } from "react-router-dom";
 
+import { useAppSelector } from "@/hooks";
+
 import styles from "./NavItem.module.scss";
 
 interface NavItemProps {
@@ -14,10 +16,18 @@ export const NavItem: FC<NavItemProps> = ({ to, title }) => {
         end: to.length === 1,
     });
 
-    const linkStyles = match ? `${styles.navItem} ${styles.navItem_active}` : `${styles.navItem}`;
+    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+
+    const linkStyles = [styles.navItem];
+    if (match) {
+        linkStyles.push(styles.navItem_active);
+    }
+    if (darkTheme) {
+        linkStyles.push(styles.navItem_dark_theme);
+    }
 
     return (
-        <Link to={to} className={linkStyles}>
+        <Link to={to} className={linkStyles.join(" ")}>
             {title}
         </Link>
     );

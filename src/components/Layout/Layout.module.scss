@@ -1,3 +1,10 @@
+@import "../../styles/colors";
+
 .container {
     padding: 0 5%;
+    background-color: $light-background;
+
+    &_dark_theme {
+        background-color: $dark-background;
+    }
 }

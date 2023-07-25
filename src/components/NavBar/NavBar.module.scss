@@ -1,7 +1,52 @@
+@import "../../styles/colors";
+
 .navBar {
     padding: 20px 0;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    margin: 0;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+
+    &:checked {
+        border-color: $black;
+    }
+}
+
+#trueRadio:is(:checked) {
+    margin: 0 -2px 0 0;
+}
+
+#falseRadio:is(:checked) {
+    margin: 0 0 0 -2px;
+}
+
+.radios {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+    border: 2px solid $black;
+    width: 60px;
+    border-radius: 15px;
+
+    &_dark_theme {
+        border: 2px solid $white;
+
+        input:checked {
+            border-color: $white;
+        }
+    }
 }

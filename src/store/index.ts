@@ -4,7 +4,7 @@ import { themeReducer } from "./themeSlice";
 
 export const store = configureStore({
     reducer: {
-        mode: themeReducer,
+        theme: themeReducer,
     },
     devTools: process.env.NODE_ENV !== "production",
 });

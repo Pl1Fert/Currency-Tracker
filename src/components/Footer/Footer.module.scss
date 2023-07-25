@@ -62,4 +62,11 @@
 
         color: $dark-grey-font;
     }
+
+    &_dark_theme {
+        &_text {
+            font-size: 24px;
+            color: $white-font;
+        }
+    }
 }
