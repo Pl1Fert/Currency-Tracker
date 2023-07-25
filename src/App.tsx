@@ -2,6 +2,8 @@ import { RouterProvider } from "react-router-dom";
 
 import { MainRouter } from "@/routers";
 
-const App = () => <RouterProvider router={MainRouter} />;
+import { LoadingSpinner } from "./components";
+
+const App = () => <RouterProvider router={MainRouter} fallbackElement={<LoadingSpinner />} />;
 
 export default App;
