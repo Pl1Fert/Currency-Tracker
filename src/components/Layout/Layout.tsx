@@ -15,11 +15,13 @@ export const Layout: FC = () => {
 
     return (
         <div className={containerStyles}>
-            <Header />
-            <main>
-                <Outlet />
-            </main>
-            <Footer />
+            <div className={styles.wrapper}>
+                <Header />
+                <main>
+                    <Outlet />
+                </main>
+                <Footer />
+            </div>
         </div>
     );
 };
