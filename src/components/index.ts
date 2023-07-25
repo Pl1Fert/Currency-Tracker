@@ -1,3 +1,5 @@
+export * from "./CurrencyCard";
+export * from "./CurrencyCardsRow";
 export * from "./Footer";
 export * from "./FooterItem";
 export * from "./FooterList";

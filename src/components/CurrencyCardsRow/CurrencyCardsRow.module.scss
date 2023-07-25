@@ -1,0 +1,21 @@
+@import "../../styles/colors";
+
+.title {
+    color: $white-font;
+    font-size: 32px;
+}
+
+.currencyCardsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.border {
+    max-width: 520px;
+    border-color: $grey;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
