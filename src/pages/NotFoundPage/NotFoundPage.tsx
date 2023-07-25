@@ -1,9 +1,28 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
+
+import logo from "@/assets/logo.svg";
+import { AppRoutes } from "@/constants";
 
 import styles from "./NotFoundPage.module.scss";
 
-interface NotFoundPageProps {}
-
-export const NotFoundPage: FC<NotFoundPageProps> = () => (
-    <div className={styles.NotFoundPage}>NotFoundPage Component</div>
+export const NotFoundPage: FC = () => (
+    <section>
+        <div className={styles.container}>
+            <div className={styles.sectionInner}>
+                <img src={logo} alt="logo" />
+                <div>
+                    <h1 className={styles.title}>404</h1>
+                    <h2 className={styles.subtitle}>UH OH! You&apos;re lost.</h2>
+                    <p className={styles.text}>
+                        The page you are looking for does not exist. How you got here is a mystery.
+                        But you can click the button below to go back to the homepage.
+                    </p>
+                    <Link to={AppRoutes.HOME} className={styles.button}>
+                        Home
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </section>
 );
