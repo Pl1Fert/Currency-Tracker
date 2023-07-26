@@ -36,7 +36,8 @@
             "@routers/*": ["./src/routers/*"],
             "@services/*": ["./src/services/*"],
             "@store/*": ["./src/store/*"],
-            "@types/*": ["./src/types/*"]
+            "@types/*": ["./src/types/*"],
+            "@loaders/*": ["./src/loaders/*"]
         },
         "plugins": [{ "name": "typescript-plugin-css-modules" }]
     },

@@ -61,7 +61,7 @@ export const QUOTES_CARDS = [
         id: 9,
         title: "Libra",
         icon: Libra,
-        symbol: "LBR",
+        symbol: "ETH",
     },
 ];
 

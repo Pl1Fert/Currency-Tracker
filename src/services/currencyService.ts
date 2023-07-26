@@ -45,7 +45,7 @@ const getCurrencyConvert = async (
 ): Promise<string | undefined> => {
     try {
         const { data } = await axios.get<ICurrencyConvert>(
-            `${ENV_VARS.FIXER_URL}/convert?access_key=${ENV_VARS.FIXER_API_KEY}&from=${from}&to=${to}&amount=${amount}`
+            `${ENV_VARS.CURRENCYLAYER_URL}/convert?access_key=${ENV_VARS.CURRENCYLAYER_API_KEY}&from=${from}&to=${to}&amount=${amount}`
         );
 
         return data.result.toFixed(2).toString();
@@ -65,12 +65,13 @@ const getCurrencySymbols = (): string => {
 const getCurrencyRates = async (): Promise<IRates | undefined> => {
     try {
         const { data } = await axios.get<ICurrencyRates>(
-            `${ENV_VARS.FIXER_URL}/latest?access_key=${
-                ENV_VARS.FIXER_API_KEY
-            }&base=BRL&symbols=${getCurrencySymbols()}`
+            `${ENV_VARS.CURRENCYLAYER_URL}/live?access_key=${
+                ENV_VARS.CURRENCYLAYER_API_KEY
+            }&source=BRL&currencies=${getCurrencySymbols()}&format=1`
         );
 
         const { rates } = data;
+        console.log(data);
         return rates;
     } catch (error) {
         console.log(error);
@@ -78,7 +79,7 @@ const getCurrencyRates = async (): Promise<IRates | undefined> => {
     }
 };
 
-const getCryptoCurrencyRate = async () => {
+const getCryptoCurrencyRates = async () => {
     try {
         const { data } = await axios.get<ICryptoCurrencyRates>(
             `${ENV_VARS.COINLAYER_URL}/live?access_key=${
@@ -87,6 +88,7 @@ const getCryptoCurrencyRate = async () => {
         );
 
         const { rates } = data;
+        console.log(data);
         return rates;
     } catch (error) {
         console.log(error);
@@ -97,5 +99,5 @@ const getCryptoCurrencyRate = async () => {
 export const CurrencyService = {
     getCurrencyConvert,
     getCurrencyRates,
-    getCryptoCurrencyRate,
+    getCryptoCurrencyRates,
 };

@@ -1,1 +1,1 @@
-export const CRYPTO_SYMBOLS = ["BTC", "LBR"];
+export const CRYPTO_SYMBOLS = ["BTC", "ETH"];

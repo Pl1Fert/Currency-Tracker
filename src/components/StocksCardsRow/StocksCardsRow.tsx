@@ -3,22 +3,21 @@ import { FC } from "react";
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 
-import styles from "./CurrencyCardsRow.module.scss";
+import styles from "./StocksCardsRow.module.scss";
+
+interface StocksCardsRowProps {}
 
 interface ICard {
     id: number;
     title: string;
     icon: string;
-    symbol: string;
 }
 
-interface CurrencyCardsRowProps {
+interface StocksCardsRowProps {
     title: string;
     cards: ICard[];
-    rates?: Map<string, number>;
 }
-
-export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
+export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
 
     return (
@@ -32,12 +31,7 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
             <hr className={styles.border} />
             <div className={styles.cardsRow}>
                 {cards.map((card) => (
-                    <CurrencyCard
-                        key={card.id}
-                        title={card.title}
-                        icon={card.icon}
-                        text={`R$ ${rates?.get(card.symbol)}`}
-                    />
+                    <CurrencyCard key={card.id} title={card.title} icon={card.icon} text="0.15%" />
                 ))}
             </div>
         </section>
