@@ -30,7 +30,7 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards }) =>
             <hr className={styles.border} />
             <div className={styles.currencyCardsRow}>
                 {cards.map((card) => (
-                    <CurrencyCard key={card.id} title={card.title} text="aboba" icon={card.icon} />
+                    <CurrencyCard key={card.id} title={card.title} icon={card.icon} />
                 ))}
             </div>
         </section>

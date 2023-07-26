@@ -13,46 +13,55 @@ export const QUOTES_CARDS = [
         id: 1,
         title: "Commercial Dollar",
         icon: Dollar,
+        symbol: "USD",
     },
     {
         id: 2,
         title: "Argentine Peso",
         icon: ArgentinePeso,
+        symbol: "ARS",
     },
     {
         id: 3,
         title: "Canadian Dollar",
         icon: CanadianDollar,
+        symbol: "CAD",
     },
     {
         id: 4,
         title: "Yen",
         icon: Yen,
+        symbol: "JPY",
     },
     {
         id: 5,
         title: "Australian Dollar",
         icon: AustralianDollar,
+        symbol: "AUD",
     },
     {
         id: 6,
         title: "Yuan",
         icon: Yuan,
+        symbol: "CNY",
     },
     {
         id: 7,
         title: "Euro",
         icon: Euro,
+        symbol: "EUR",
     },
     {
         id: 8,
         title: "Bitcoin",
         icon: Bitcoin,
+        symbol: "BTC",
     },
     {
         id: 9,
         title: "Libra",
         icon: Libra,
+        symbol: "LBR",
     },
 ];
 
