@@ -1,8 +1,12 @@
 @import "../../styles/colors";
 
 .title {
-    color: $white-font;
+    color: $black-font;
     font-size: 32px;
+
+    &_dark_theme {
+        color: $white-font;
+    }
 }
 
 .currencyCardsRow {
