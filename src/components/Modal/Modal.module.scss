@@ -1,0 +1,17 @@
+.modalWrapper {
+    position: fixed;
+    inset: 0;
+
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+}
+
+.modal {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
