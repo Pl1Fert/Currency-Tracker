@@ -36,7 +36,7 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
                         key={card.id}
                         title={card.title}
                         icon={card.icon}
-                        text={`R$ ${rates?.get(card.symbol)}`}
+                        text={`R$ ${rates?.get(card.symbol)?.toFixed(2)}`}
                     />
                 ))}
             </div>

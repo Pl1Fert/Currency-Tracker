@@ -1,5 +1,4 @@
 export * from "./appRoutes";
-export * from "./cryptoSymbols";
 export * from "./envVariables";
 export * from "./footerLists";
 export * from "./navLinks";
