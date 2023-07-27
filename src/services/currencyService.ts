@@ -1,103 +1,78 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
-import { CRYPTO_SYMBOLS, ENV_VARS, QUOTES_CARDS_ROW } from "@/constants";
+import { ENV_VARS, QUOTES_CARDS_ROW } from "@/constants";
+
+interface ICurrencyRate {
+    meta: {
+        last_updated_at: string;
+    };
+    data: {
+        BRL: {
+            code: string;
+            value: number;
+        };
+    };
+}
 
 interface ICurrencyConvert {
-    success: boolean;
-    query: {
-        from: string;
-        to: string;
-        amount: number;
+    meta: {
+        last_updated_at: string;
     };
-    info: {
-        timestamp: number;
-        rate: number;
+    data: {
+        [key: string]: {
+            code: string;
+            value: number;
+        };
     };
-    date: string;
-    result: number;
 }
 
-interface IRates {
-    [key: string]: number;
-}
-
-interface ICurrencyRates {
-    success: boolean;
-    timestamp: number;
-    base: string;
-    date: string;
-    rates: IRates;
-}
-
-interface ICryptoCurrencyRates {
-    success: boolean;
-    terms: string;
-    privacy: string;
-    timestamp: number;
-    target: string;
-    rates: IRates;
-}
-
-const getCurrencyConvert = async (
-    from: string,
-    to: string,
-    amount: string
-): Promise<string | undefined> => {
+const getCurrencyConvert = async (from: string, to: string): Promise<number | undefined> => {
     try {
         const { data } = await axios.get<ICurrencyConvert>(
-            `${ENV_VARS.CURRENCYLAYER_URL}/convert?access_key=${ENV_VARS.CURRENCYLAYER_API_KEY}&from=${from}&to=${to}&amount=${amount}`
+            `${ENV_VARS.CURRENCY_URL}/latest?apikey=${ENV_VARS.CURRENCY_API_KEY}&currencies=${to}&base_currency=${from}`
         );
 
-        return data.result.toFixed(2).toString();
+        return data.data[`${from}`]!.value;
     } catch (error) {
         console.log(error);
+
         return undefined;
     }
 };
 
-const getCurrencySymbols = (): string => {
+const getCurrencySymbols = (): string[] => {
     const { cards } = QUOTES_CARDS_ROW;
-    const array: string[] = cards.map((card) => card.symbol);
 
-    return array.filter((i) => !CRYPTO_SYMBOLS.includes(i)).join(",");
+    return cards.map((card): string => card.symbol);
 };
 
-const getCurrencyRates = async (): Promise<IRates | undefined> => {
+const getCurrencyRates = async (): Promise<Map<string, number>> => {
+    const map = new Map<string, number>();
+
     try {
-        const { data } = await axios.get<ICurrencyRates>(
-            `${ENV_VARS.CURRENCYLAYER_URL}/live?access_key=${
-                ENV_VARS.CURRENCYLAYER_API_KEY
-            }&source=BRL&currencies=${getCurrencySymbols()}&format=1`
+        const symbols: string[] = getCurrencySymbols();
+        const promisesArray: Promise<AxiosResponse<ICurrencyRate, unknown>>[] = symbols.map(
+            (symbol) =>
+                axios.get<ICurrencyRate>(
+                    `${ENV_VARS.CURRENCY_URL}/latest?apikey=${ENV_VARS.CURRENCY_API_KEY}&currencies=BRL&base_currency=${symbol}`
+                )
         );
 
-        const { rates } = data;
-        console.log(data);
-        return rates;
-    } catch (error) {
-        console.log(error);
-        return undefined;
-    }
-};
-
-const getCryptoCurrencyRates = async () => {
-    try {
-        const { data } = await axios.get<ICryptoCurrencyRates>(
-            `${ENV_VARS.COINLAYER_URL}/live?access_key=${
-                ENV_VARS.COINLAYER_API_KEY
-            }&target=BRL&symbols=${CRYPTO_SYMBOLS.join(",")}`
+        const array: number[] = await Promise.all(promisesArray).then((responses) =>
+            responses.map((response) => response.data.data.BRL.value)
         );
 
-        const { rates } = data;
-        console.log(data);
-        return rates;
+        for (let i = 0; i < symbols.length; i += 1) {
+            map.set(symbols.at(i) as string, array[i] as number);
+        }
     } catch (error) {
         console.log(error);
-        return undefined;
     }
+
+    return map;
 };
 
 export const CurrencyService = {
     getCurrencyConvert,
     getCurrencyRates,
-    getCryptoCurrencyRates,
 };

@@ -8,7 +8,7 @@ import styles from "./HomePage.module.scss";
 
 export const HomePage: FC = () => {
     const rates: Map<string, number> = useLoaderData() as Map<string, number>;
-    console.log(rates);
+
     return (
         <div className={styles.container}>
             <StocksCardsRow title={STOCKS_CARDS_ROW.title} cards={STOCKS_CARDS_ROW.cards} />
