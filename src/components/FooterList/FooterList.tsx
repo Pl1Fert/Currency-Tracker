@@ -18,9 +18,7 @@ interface FooterListProps {
 export const FooterList: FC<FooterListProps> = ({ title, links }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
 
-    const titleStyles = darkTheme
-        ? `${styles.title_dark_theme} ${styles.title}`
-        : `${styles.title}`;
+    const titleStyles = darkTheme ? `${styles.titleDarkTheme} ${styles.title}` : `${styles.title}`;
 
     return (
         <div>

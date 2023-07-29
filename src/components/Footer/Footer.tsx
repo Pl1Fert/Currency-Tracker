@@ -12,15 +12,15 @@ export const Footer: FC = () => {
 
     return (
         <footer className={styles.footer}>
-            <div className={styles.footer_row}>
-                <div className={styles.footer_content}>
-                    <div className={styles.footer_title_row}>
+            <div className={styles.footerRow}>
+                <div className={styles.footerContent}>
+                    <div className={styles.footerTitleRow}>
                         <img src={logo} alt="logo" />
-                        <h1 className={styles.footer_title}>Modsen Currency Tracker</h1>
+                        <h1 className={styles.footerTitle}>Modsen Currency Tracker</h1>
                     </div>
                     <p
                         className={
-                            darkTheme ? `${styles.footer_dark_theme_text}` : `${styles.footer_text}`
+                            darkTheme ? `${styles.footerDarkThemeText}` : `${styles.footerText}`
                         }>
                         Since then, the company has grown organically to. Starsup is the
                         world&apos;s largest trading platform, with $12 billion worth of currency
@@ -28,13 +28,13 @@ export const Footer: FC = () => {
                         worldwide.
                     </p>
                 </div>
-                <div className={styles.footer_accordion}>
+                <div className={styles.footerAccordion}>
                     {FOOTER_LISTS.map((list) => (
                         <FooterList key={list.id} title={list.title} links={list.links} />
                     ))}
                 </div>
             </div>
-            <p className={styles.footer_sign}>Startsup © 2023-2024, All Rights Reserved</p>
+            <p className={styles.footerSign}>Startsup © 2023-2024, All Rights Reserved</p>
         </footer>
     );
 };

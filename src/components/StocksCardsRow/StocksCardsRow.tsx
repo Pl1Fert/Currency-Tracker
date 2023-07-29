@@ -25,7 +25,7 @@ export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
         <section>
             <p
                 className={
-                    darkTheme ? `${styles.title} ${styles.title_dark_theme}` : `${styles.title}`
+                    darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
                 }>
                 {title}
             </p>

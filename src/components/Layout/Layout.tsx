@@ -10,7 +10,7 @@ export const Layout: FC = () => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
 
     const containerStyles = darkTheme
-        ? `${styles.container} ${styles.container_dark_theme}`
+        ? `${styles.container} ${styles.containerDarkTheme}`
         : `${styles.container}`;
 
     return (

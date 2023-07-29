@@ -13,23 +13,23 @@ export const Header: FC = () => {
         <header>
             <NavBar />
             <div className={styles.top}>
-                <div className={styles.top_content}>
-                    <h1 className={styles.top_title}>Modsen Currency Tracker</h1>
-                    <p className={styles.top_text}>
+                <div className={styles.topContent}>
+                    <h1 className={styles.topTitle}>Modsen Currency Tracker</h1>
+                    <p className={styles.topText}>
                         Quotes for the dollar and other international currencies.
                     </p>
                 </div>
-                <div className={styles.top_image_block}>
-                    <img src={logo} alt="logo" className={styles.top_image} />
+                <div className={styles.topImageBlock}>
+                    <img src={logo} alt="logo" className={styles.topImage} />
                 </div>
             </div>
-            <div className={styles.updated_row}>
-                <span className={styles.updated_pulse_button} />
+            <div className={styles.updatedRow}>
+                <span className={styles.updatedPulseButton} />
                 <p
                     className={
                         darkTheme
-                            ? `${styles.updated_text} ${styles.updated_text_dark_theme}`
-                            : `${styles.updated_text}`
+                            ? `${styles.updatedText} ${styles.updatedTextDarkTheme}`
+                            : `${styles.updatedText}`
                     }>
                     Last updated at 11:59pm
                 </p>

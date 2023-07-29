@@ -20,10 +20,10 @@ export const NavItem: FC<NavItemProps> = ({ to, title }) => {
 
     const linkStyles = [styles.navItem];
     if (match) {
-        linkStyles.push(styles.navItem_active);
+        linkStyles.push(styles.navItemActive);
     }
     if (darkTheme) {
-        linkStyles.push(styles.navItem_dark_theme);
+        linkStyles.push(styles.navItemDarkTheme);
     }
 
     return (

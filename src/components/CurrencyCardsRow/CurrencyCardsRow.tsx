@@ -40,7 +40,7 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
         <section>
             <p
                 className={
-                    darkTheme ? `${styles.title} ${styles.title_dark_theme}` : `${styles.title}`
+                    darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
                 }>
                 {title}
             </p>

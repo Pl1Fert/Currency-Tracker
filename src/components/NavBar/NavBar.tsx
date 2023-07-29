@@ -30,7 +30,7 @@ export const NavBar: FC = () => {
             <NavList />
             <div
                 className={
-                    darkTheme ? `${styles.radios} ${styles.radios_dark_theme}` : `${styles.radios}`
+                    darkTheme ? `${styles.radios} ${styles.radiosDarkTheme}` : `${styles.radios}`
                 }>
                 <input
                     type="radio"

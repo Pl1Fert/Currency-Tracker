@@ -20,7 +20,7 @@
         width: 100%;
     }
 
-    &_active {
+    &Active {
         cursor: default;
         pointer-events: none;
 
@@ -29,7 +29,7 @@
         }
     }
 
-    &_dark_theme {
+    &DarkTheme {
         color: $white-font;
 
         &::after {

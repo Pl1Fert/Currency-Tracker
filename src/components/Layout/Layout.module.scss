@@ -3,7 +3,7 @@
 .container {
     background-color: $light-background;
 
-    &_dark_theme {
+    &DarkTheme {
         background-color: $dark-background;
     }
 }

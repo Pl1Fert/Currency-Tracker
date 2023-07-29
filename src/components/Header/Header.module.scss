@@ -8,11 +8,11 @@
     align-items: center;
     background: linear-gradient(45deg, $header-gradient-begin, $header-gradient-end);
 
-    &_content {
+    &Content {
         width: 50%;
     }
 
-    &_text {
+    &Text {
         margin-left: auto;
         max-width: 60%;
 
@@ -22,7 +22,7 @@
         color: $light-grey-font;
     }
 
-    &_title {
+    &Title {
         padding-right: 50px;
 
         font-weight: 600;
@@ -40,17 +40,17 @@
         );
     }
 
-    &_image_block {
+    &ImageBlock {
         width: 50%;
     }
 
-    &_image {
+    &Image {
         width: 300px;
         height: 300px;
     }
 }
 
-.updated_row {
+.updatedRow {
     width: 450px;
     margin: 50px auto;
 
@@ -59,7 +59,7 @@
     align-items: center;
 }
 
-.updated_pulse_button {
+.updatedPulseButton {
     display: block;
     width: 30px;
     height: 30px;
@@ -86,11 +86,11 @@
     }
 }
 
-.updated_text {
+.updatedText {
     color: $black;
     font-size: 32px;
 
-    &_dark_theme {
+    &DarkTheme {
         color: $light-grey-font;
     }
 }
