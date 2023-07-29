@@ -6,7 +6,7 @@ import { QUOTES_CARDS_ROW, STOCKS_CARDS_ROW } from "@/constants";
 
 import styles from "./HomePage.module.scss";
 
-export const HomePage: FC = () => {
+const HomePage: FC = () => {
     const rates: Map<string, number> = useLoaderData() as Map<string, number>;
 
     return (
@@ -20,3 +20,5 @@ export const HomePage: FC = () => {
         </div>
     );
 };
+
+export default HomePage;

@@ -6,7 +6,7 @@ import { AppRoutes } from "@/constants";
 
 import styles from "./NotFoundPage.module.scss";
 
-export const NotFoundPage: FC = () => (
+const NotFoundPage: FC = () => (
     <section>
         <div className={styles.container}>
             <div className={styles.sectionInner}>
@@ -26,3 +26,5 @@ export const NotFoundPage: FC = () => (
         </div>
     </section>
 );
+
+export default NotFoundPage;

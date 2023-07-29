@@ -4,7 +4,7 @@ import logo from "@/assets/logo.svg";
 
 import styles from "./ErrorPage.module.scss";
 
-export const ErrorPage: FC = () => (
+const ErrorPage: FC = () => (
     <section>
         <div className={styles.container}>
             <div className={styles.sectionInner}>
@@ -16,3 +16,5 @@ export const ErrorPage: FC = () => (
         </div>
     </section>
 );
+
+export default ErrorPage;

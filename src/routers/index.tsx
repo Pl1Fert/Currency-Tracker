@@ -1,16 +1,16 @@
+import { lazy } from "react";
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 
 import { Layout } from "@/components";
 import { AppRoutes } from "@/constants";
 import { homePageLoader } from "@/loaders";
-import {
-    BankCardPage,
-    ContactsPage,
-    ErrorPage,
-    HomePage,
-    NotFoundPage,
-    TimelinePage,
-} from "@/pages";
+
+const BankCardPage = lazy(() => import("@/pages/BankCardPage/BankCardPage"));
+const ContactsPage = lazy(() => import("@/pages/ContactsPage/ContactsPage"));
+const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
+const HomePage = lazy(() => import("@/pages/HomePage/HomePage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage/NotFoundPage"));
+const TimelinePage = lazy(() => import("@/pages/TimelinePage/TimelinePage"));
 
 export const MainRouter = createBrowserRouter(
     createRoutesFromElements(

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Footer, Header } from "@/components";
@@ -18,7 +18,9 @@ export const Layout: FC = () => {
             <div className={styles.wrapper}>
                 <Header />
                 <main>
-                    <Outlet />
+                    <Suspense fallback={<h1>Loading...</h1>}>
+                        <Outlet />
+                    </Suspense>
                 </main>
                 <Footer />
             </div>
