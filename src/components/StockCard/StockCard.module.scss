@@ -1,0 +1,35 @@
+@import "../../styles/colors";
+
+.stockCard {
+    width: 520px;
+    height: 153px;
+    padding: 30px;
+    padding-right: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    background-color: $dark-grey;
+    border: 1px solid $grey;
+    border-radius: 8px;
+
+    transition: all 0.3s linear;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.cardTitle {
+    font-weight: 400;
+    color: $light-grey-font;
+    font-size: 35px;
+}
+
+.cardText {
+    color: $grey-font;
+    font-size: 32px;
+}
