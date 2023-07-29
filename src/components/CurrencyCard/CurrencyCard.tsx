@@ -8,7 +8,7 @@ interface CurrencyCardProps {
     card: ICard;
     text?: string;
     modal: {
-        isModalOpen: number;
+        cardIdToOpenModal: number;
         closeModal: () => void;
         openModal: (id: number) => void;
     };
@@ -23,7 +23,7 @@ interface ICard {
 
 export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card, modal }) => (
     <>
-        {modal.isModalOpen === card.id && <Modal closeModal={modal.closeModal} card={card} />}
+        {modal.cardIdToOpenModal === card.id && <Modal closeModal={modal.closeModal} card={card} />}
         <div
             className={styles.currencyCard}
             onClick={() => modal.openModal(card.id)}

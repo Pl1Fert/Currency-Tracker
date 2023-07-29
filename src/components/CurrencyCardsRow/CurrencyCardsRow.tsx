@@ -20,18 +20,18 @@ interface CurrencyCardsRowProps {
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
-    const [isModalOpen, setIsModalOpen] = useState<number>(0);
+    const [cardIdToOpenModal, setCardIdToOpenModal] = useState<number>(0);
 
     const closeModal = () => {
-        setIsModalOpen(() => 0);
+        setCardIdToOpenModal(() => 0);
     };
 
     const openModal = (id: number) => {
-        setIsModalOpen(() => id);
+        setCardIdToOpenModal(() => id);
     };
 
     const modal = {
-        isModalOpen,
+        cardIdToOpenModal,
         closeModal,
         openModal,
     };
@@ -50,7 +50,11 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
                     <CurrencyCard
                         key={card.id}
                         card={card}
-                        text={`R$ ${rates?.get(card.symbol)?.toFixed(2)}`}
+                        text={
+                            rates?.get(card.symbol)
+                                ? `R$ ${rates?.get(card.symbol)?.toFixed(2)}`
+                                : undefined
+                        }
                         modal={modal}
                     />
                 ))}
