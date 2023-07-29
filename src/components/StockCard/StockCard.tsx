@@ -1,17 +1,7 @@
 import { FC } from "react";
 
+import { StockCardProps } from "./StockCard.interfaces";
 import styles from "./StockCard.module.scss";
-
-interface ICard {
-    id: number;
-    title: string;
-    icon: string;
-}
-
-interface StockCardProps {
-    card: ICard;
-    text?: string;
-}
 
 export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => (
     <div className={styles.stockCard}>

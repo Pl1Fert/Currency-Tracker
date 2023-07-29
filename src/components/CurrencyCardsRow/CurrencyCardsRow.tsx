@@ -3,20 +3,8 @@ import { FC, useState } from "react";
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 
+import { CurrencyCardsRowProps } from "./CurrencyCardsRow.interfaces";
 import styles from "./CurrencyCardsRow.module.scss";
-
-interface ICard {
-    id: number;
-    title: string;
-    icon: string;
-    symbol: string;
-}
-
-interface CurrencyCardsRowProps {
-    title: string;
-    cards: ICard[];
-    rates?: Map<string, number>;
-}
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);

@@ -3,12 +3,8 @@ import { Link, useMatch } from "react-router-dom";
 
 import { useAppSelector } from "@/hooks";
 
+import { NavItemProps } from "./NavItem.interfaces";
 import styles from "./NavItem.module.scss";
-
-interface NavItemProps {
-    to: string;
-    title: string;
-}
 
 export const NavItem: FC<NavItemProps> = ({ to, title }) => {
     const match = useMatch({

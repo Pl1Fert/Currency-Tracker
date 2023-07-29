@@ -3,20 +3,8 @@ import { FC } from "react";
 import { StockCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 
+import { StocksCardsRowProps } from "./StocksCardsRow.interfaces";
 import styles from "./StocksCardsRow.module.scss";
-
-interface StocksCardsRowProps {}
-
-interface ICard {
-    id: number;
-    title: string;
-    icon: string;
-}
-
-interface StocksCardsRowProps {
-    title: string;
-    cards: ICard[];
-}
 
 export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);

@@ -3,17 +3,8 @@ import { FC } from "react";
 import { FooterItem } from "@/components";
 import { useAppSelector } from "@/hooks";
 
+import { FooterListProps } from "./FooterList.interfaces";
 import styles from "./FooterList.module.scss";
-
-interface FooterListItem {
-    id: number;
-    title: string;
-}
-
-interface FooterListProps {
-    title: string;
-    links: FooterListItem[];
-}
 
 export const FooterList: FC<FooterListProps> = ({ title, links }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
