@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
@@ -20,6 +20,21 @@ interface CurrencyCardsRowProps {
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
     const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const [cardIdToOpenModal, setCardIdToOpenModal] = useState<number>(0);
+
+    const closeModal = () => {
+        setCardIdToOpenModal(() => 0);
+    };
+
+    const openModal = (id: number) => {
+        setCardIdToOpenModal(() => id);
+    };
+
+    const modal = {
+        cardIdToOpenModal,
+        closeModal,
+        openModal,
+    };
 
     return (
         <section>
@@ -34,9 +49,13 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
                 {cards.map((card) => (
                     <CurrencyCard
                         key={card.id}
-                        title={card.title}
-                        icon={card.icon}
-                        text={`R$ ${rates?.get(card.symbol)?.toFixed(2)}`}
+                        card={card}
+                        text={
+                            rates?.get(card.symbol)
+                                ? `R$ ${rates?.get(card.symbol)?.toFixed(2)}`
+                                : undefined
+                        }
+                        modal={modal}
                     />
                 ))}
             </div>
