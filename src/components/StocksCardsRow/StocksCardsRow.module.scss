@@ -1,0 +1,25 @@
+@import "../../styles/colors";
+
+.title {
+    color: $black-font;
+    font-size: 32px;
+
+    &_dark_theme {
+        color: $white-font;
+    }
+}
+
+.cardsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.border {
+    max-width: 520px;
+    border-color: $grey;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
