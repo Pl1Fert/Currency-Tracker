@@ -4,11 +4,12 @@ import logo from "@/assets/logo.svg";
 import { FooterList } from "@/components";
 import { FOOTER_LISTS } from "@/constants";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import styles from "./Footer.module.scss";
 
 export const Footer: FC = () => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     return (
         <footer className={styles.footer}>

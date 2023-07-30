@@ -1,13 +1,14 @@
 import { FC } from "react";
 
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import styles from "./ContactsPage.module.scss";
 
 interface ContactsPageProps {}
 
 const ContactsPage: FC<ContactsPageProps> = () => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     const linkStyles = darkTheme ? `${styles.link} ${styles.linkDarkTheme}` : `${styles.link}`;
 

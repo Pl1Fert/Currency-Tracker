@@ -2,12 +2,13 @@ import { FC, useState } from "react";
 
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import { CurrencyCardsRowProps } from "./CurrencyCardsRow.interfaces";
 import styles from "./CurrencyCardsRow.module.scss";
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
     const [cardIdToOpenModal, setCardIdToOpenModal] = useState<number>(0);
 
     const closeModal = () => {

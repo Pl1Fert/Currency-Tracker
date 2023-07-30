@@ -2,12 +2,13 @@ import { FC } from "react";
 
 import { FooterItem } from "@/components";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import { FooterListProps } from "./FooterList.interfaces";
 import styles from "./FooterList.module.scss";
 
 export const FooterList: FC<FooterListProps> = ({ title, links }) => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     const titleStyles = darkTheme ? `${styles.titleDarkTheme} ${styles.title}` : `${styles.title}`;
 

@@ -5,13 +5,14 @@ import logo from "@/assets/logo.svg";
 import { NavList } from "@/components";
 import { AppRoutes } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 import { themeActions } from "@/store/themeSlice";
 
 import styles from "./NavBar.module.scss";
 
 export const NavBar: FC = () => {
     const dispatch = useAppDispatch();
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     const handleClick = (e: SyntheticEvent) => {
         const target = e.target as HTMLInputElement;

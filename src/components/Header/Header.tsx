@@ -3,11 +3,12 @@ import { FC } from "react";
 import logo from "@/assets/logo.svg";
 import { NavBar } from "@/components";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import styles from "./Header.module.scss";
 
 export const Header: FC = () => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     return (
         <header>

@@ -2,12 +2,13 @@ import { FC } from "react";
 
 import { StockCard } from "@/components";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import { StocksCardsRowProps } from "./StocksCardsRow.interfaces";
 import styles from "./StocksCardsRow.module.scss";
 
 export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     return (
         <section>

@@ -3,11 +3,12 @@ import { Outlet } from "react-router-dom";
 
 import { Footer, Header } from "@/components";
 import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
 
 import styles from "./Layout.module.scss";
 
 export const Layout: FC = () => {
-    const darkTheme = useAppSelector((state) => state.theme.darkTheme);
+    const darkTheme = useAppSelector(themeSelector);
 
     const containerStyles = darkTheme
         ? `${styles.container} ${styles.containerDarkTheme}`
