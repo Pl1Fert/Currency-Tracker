@@ -1,3 +1,4 @@
+export * from "./Chart";
 export * from "./CurrencyCard";
 export * from "./CurrencyCardsRow";
 export * from "./Footer";

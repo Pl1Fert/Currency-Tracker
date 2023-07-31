@@ -1,3 +1,14 @@
-.TimelinePage {
-    display: block;
+@import "../../styles/colors";
+
+.container {
+    margin: 50px 0;
+}
+
+.top {
+    margin-bottom: 50px;
+}
+
+.select {
+    background-color: $dark-background;
+    color: $white;
 }
