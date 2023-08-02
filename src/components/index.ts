@@ -6,6 +6,7 @@ export * from "./FooterList";
 export * from "./Header";
 export * from "./Layout";
 export * from "./LoadingSpinner";
+export * from "./MapComponent";
 export * from "./Modal";
 export * from "./NavBar";
 export * from "./NavItem";

@@ -26,6 +26,7 @@
         "@babel/preset-react": "^7.22.5",
         "@babel/preset-typescript": "^7.22.5",
         "@types/jest": "^29.5.3",
+        "@types/mapbox-gl": "^2.7.12",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.1.0",
