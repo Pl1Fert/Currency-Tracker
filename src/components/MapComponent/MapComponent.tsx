@@ -35,9 +35,7 @@ export class MapComponent extends Component<IProps, IState> {
                         }));
                     }
                 })
-                .catch(() => {
-                    throw new Error("error");
-                });
+                .catch(() => {});
         };
 
         const getLocation = () => {

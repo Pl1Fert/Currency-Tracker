@@ -11,5 +11,6 @@ export * from "./Modal";
 export * from "./NavBar";
 export * from "./NavItem";
 export * from "./NavList";
+export * from "./Search";
 export * from "./StockCard";
 export * from "./StocksCardsRow";

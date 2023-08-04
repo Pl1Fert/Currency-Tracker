@@ -1,5 +1,7 @@
 .mapContainer {
-    height: 460px;
+    margin-bottom: 200px;
 
-    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
 }
