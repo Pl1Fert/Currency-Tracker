@@ -1,6 +1,8 @@
-export interface IProps {}
+export interface IProps {
+    inputValue: string;
+    setInputValue: (newValue: string) => void;
+}
 
 export interface IState {
-    inputValue: string;
     isListOpen: boolean;
 }

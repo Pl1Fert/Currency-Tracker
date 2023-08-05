@@ -18,6 +18,7 @@ export interface IFeature {
         osm: string;
         kinds: string;
     };
+    currencies: [string, string];
 }
 
 export interface IState {
@@ -25,4 +26,6 @@ export interface IState {
     coords: ICoords;
 }
 
-export interface IProps {}
+export interface IProps {
+    inputValue: string;
+}

@@ -9,31 +9,34 @@ export class Search extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            inputValue: "",
             isListOpen: true,
         };
     }
 
-    handleChange = (e: SyntheticEvent): void => {
-        const target = e.target as HTMLInputElement;
-        this.setState((prevState) => ({ ...prevState, inputValue: target.value }));
-    };
-
-    handleItemClick = (e: SyntheticEvent) => {
+    handleItemClick = (e: SyntheticEvent): void => {
         const target = e.target as HTMLElement;
+        const { setInputValue } = this.props;
         this.setState((prevState) => ({
             ...prevState,
-            inputValue: target.textContent ?? "",
             isListOpen: false,
         }));
+        setInputValue(target.textContent ?? "");
     };
 
-    handleInputClick = () => {
+    handleChange = (e: SyntheticEvent): void => {
+        const { setInputValue } = this.props;
+        const target = e.target as HTMLInputElement;
+
+        setInputValue(target.value);
+    };
+
+    handleInputClick = (): void => {
         this.setState((prevState) => ({ ...prevState, isListOpen: true }));
     };
 
     override render() {
-        const { inputValue, isListOpen } = this.state;
+        const { isListOpen } = this.state;
+        const { inputValue } = this.props;
         const symbols: string[] = CurrencyService.getCurrencySymbols();
         const filteredSymbols = symbols
             .filter((symbol) => symbol.toLowerCase().includes(inputValue.toLowerCase()))
