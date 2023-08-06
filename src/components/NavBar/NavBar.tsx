@@ -26,7 +26,7 @@ export const NavBar: FC = () => {
     return (
         <nav className={styles.navBar}>
             <Link to={AppRoutes.HOME}>
-                <img src={logo} alt="logo" />
+                <img src={logo} alt="logo" className={styles.logo} />
             </Link>
             <NavList />
             <div

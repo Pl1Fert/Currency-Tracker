@@ -21,6 +21,12 @@
     border-radius: 15%;
 
     background-color: $grey;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        border-radius: 0;
+        padding: 40px 15px;
+    }
 }
 
 .row {
@@ -41,6 +47,11 @@
 
     outline: none;
     border-radius: 15px;
+
+    @media screen and (max-width: 500px) {
+        width: 60%;
+        padding: 5px 10px;
+    }
 }
 
 .symbol {
@@ -82,6 +93,10 @@
     border-radius: 15px;
 
     cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+        padding: 5px 0;
+    }
 }
 
 input::-webkit-outer-spin-button,

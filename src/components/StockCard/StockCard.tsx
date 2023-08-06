@@ -1,16 +1,42 @@
 import { FC } from "react";
 
+import { useAppSelector } from "@/hooks";
+import { themeSelector } from "@/store/selectors";
+
 import { StockCardProps } from "./StockCard.interfaces";
 import styles from "./StockCard.module.scss";
 
-export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => (
-    <div className={styles.stockCard}>
-        <div>
-            <img src={card.icon} alt="title" />
+export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {
+    const darkTheme = useAppSelector(themeSelector);
+
+    return (
+        <div
+            className={
+                darkTheme
+                    ? `${styles.stockCard} ${styles.stockCardDarkTheme}`
+                    : `${styles.stockCard}`
+            }>
+            <div>
+                <img src={card.icon} alt="title" className={styles.icon} />
+            </div>
+            <div>
+                <p
+                    className={
+                        darkTheme
+                            ? `${styles.cardTitle} ${styles.cardTitleDarkTheme}`
+                            : `${styles.cardTitle}`
+                    }>
+                    {card.title}
+                </p>
+                <p
+                    className={
+                        darkTheme
+                            ? `${styles.cardText} ${styles.cardTextDarkTheme}`
+                            : `${styles.cardText}`
+                    }>
+                    {text}
+                </p>
+            </div>
         </div>
-        <div>
-            <p className={styles.cardTitle}>{card.title}</p>
-            <p className={styles.cardText}>{text}</p>
-        </div>
-    </div>
-);
+    );
+};
