@@ -3,7 +3,6 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 
 import { Layout } from "@/components";
 import { AppRoutes } from "@/constants";
-import { homePageLoader } from "@/loaders";
 
 const BankCardPage = lazy(() => import("@/pages/BankCardPage/BankCardPage"));
 const ContactsPage = lazy(() => import("@/pages/ContactsPage/ContactsPage"));
@@ -16,7 +15,7 @@ export const MainRouter = createBrowserRouter(
     createRoutesFromElements(
         <Route path={AppRoutes.HOME} errorElement={<ErrorPage />}>
             <Route element={<Layout />}>
-                <Route index element={<HomePage />} loader={homePageLoader} />
+                <Route index element={<HomePage />} />
                 <Route path={AppRoutes.TIMELINE} element={<TimelinePage />} />
                 <Route path={AppRoutes.BANK_CARD} element={<BankCardPage />} />
                 <Route path={AppRoutes.CONTACTS} element={<ContactsPage />} />

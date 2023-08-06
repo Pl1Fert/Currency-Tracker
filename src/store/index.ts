@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
+import { currencyReducer } from "./currencySlice";
 import { themeReducer } from "./themeSlice";
 
 const persistConfig = {
@@ -20,6 +21,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     theme: themeReducer,
+    currency: currencyReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
