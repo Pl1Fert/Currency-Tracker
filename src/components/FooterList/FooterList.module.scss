@@ -1,6 +1,28 @@
 @import "../../styles/colors";
 
+.container {
+    @media screen and (max-width: 900px) {
+        width: 100%;
+        padding: 20px 0;
+        border-bottom: 1px solid $light-grey;
+
+        &:hover {
+            .list {
+                max-height: 100px;
+            }
+
+            .title {
+                &::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
 .title {
+    position: relative;
+
     margin-bottom: 30px;
 
     font-weight: 400;
@@ -9,10 +31,54 @@
     &DarkTheme {
         color: $white-font;
     }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid $grey;
+        border-right: 1px solid $grey;
+
+        transform: translateY(-50%) rotate(135deg);
+        transition: all 0.3s linear;
+
+        @media screen and (max-width: 500px) {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        margin-bottom: 0;
+        padding: 10px 0 15px 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 25px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 16px;
+        padding: 5px 0 10px 0;
+    }
 }
 
 .list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    transition: max-height 0.3s linear;
+
+    @media screen and (max-width: 900px) {
+        max-height: 0;
+        height: auto;
+        overflow: hidden;
+        gap: 15px;
+    }
 }

@@ -10,6 +10,10 @@
 
     &Content {
         width: 50%;
+
+        @media screen and (max-width: 800px) {
+            width: 100%;
+        }
     }
 
     &Text {
@@ -20,6 +24,14 @@
         font-size: 25px;
 
         color: $light-grey-font;
+
+        @media screen and (max-width: 800px) {
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 500px) {
+            font-size: 14px;
+        }
     }
 
     &Title {
@@ -38,15 +50,44 @@
             $title-gradient-middle,
             $title-gradient-end
         );
+
+        @media screen and (max-width: 800px) {
+            padding-right: 0px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 700px) {
+            font-size: 50px;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 38px;
+            padding: 0 30px;
+        }
+
+        @media screen and (max-width: 500px) {
+            font-size: 26px;
+        }
     }
 
     &ImageBlock {
         width: 50%;
+        @media screen and (max-width: 800px) {
+            width: 0;
+        }
     }
 
     &Image {
         width: 300px;
         height: 300px;
+
+        @media screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding-bottom: 40px;
     }
 }
 
@@ -57,6 +98,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media screen and (max-width: 700px) {
+        width: 400px;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
 }
 
 .updatedPulseButton {
@@ -70,6 +121,11 @@
     cursor: pointer;
     box-shadow: 0 0 0 0 rgba($green, 0.5);
     animation: pulse 1.5s infinite;
+
+    @media screen and (max-width: 600px) {
+        width: 15px;
+        height: 15px;
+    }
 }
 
 @keyframes pulse {
@@ -92,5 +148,13 @@
 
     &DarkTheme {
         color: $light-grey-font;
+    }
+
+    @media screen and (max-width: 700px) {
+        font-size: 28px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 14px;
     }
 }

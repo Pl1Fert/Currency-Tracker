@@ -14,10 +14,18 @@
         justify-content: space-between;
 
         text-align: left;
+
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+        }
     }
 
     &Content {
         width: 42%;
+
+        @media screen and (max-width: 900px) {
+            width: 100%;
+        }
     }
 
     &TitleRow {
@@ -27,6 +35,10 @@
         justify-content: flex-start;
         align-items: center;
         gap: 20px;
+
+        @media screen and (max-width: 900px) {
+            justify-content: center;
+        }
     }
 
     &Title {
@@ -42,10 +54,31 @@
             $title-gradient-middle,
             $title-gradient-end
         );
+
+        @media screen and (max-width: 900px) {
+            font-size: 35px;
+        }
+
+        @media screen and (max-width: 600px) {
+            font-size: 25px;
+        }
+
+        @media screen and (max-width: 500px) {
+            font-size: 20px;
+        }
     }
 
     &Text {
         font-size: 24px;
+        color: $black;
+
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+
+        &DarkTheme {
+            color: $white-font;
+        }
     }
 
     &Accordion {
@@ -54,6 +87,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media screen and (max-width: 900px) {
+            width: 100%;
+
+            flex-direction: column;
+        }
     }
 
     &Sign {
@@ -61,12 +100,13 @@
         font-weight: 400;
 
         color: $dark-grey-font;
-    }
 
-    &DarkTheme {
-        &Text {
-            font-size: 24px;
-            color: $white-font;
+        @media screen and (max-width: 900px) {
+            font-size: 20px;
+        }
+
+        @media screen and (max-width: 500px) {
+            font-size: 12px;
         }
     }
 }

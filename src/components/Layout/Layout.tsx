@@ -10,12 +10,13 @@ import styles from "./Layout.module.scss";
 export const Layout: FC = () => {
     const darkTheme = useAppSelector(themeSelector);
 
-    const containerStyles = darkTheme
-        ? `${styles.container} ${styles.containerDarkTheme}`
-        : `${styles.container}`;
-
     return (
-        <div className={containerStyles}>
+        <div
+            className={
+                darkTheme
+                    ? `${styles.container} ${styles.containerDarkTheme}`
+                    : `${styles.container}`
+            }>
             <div className={styles.wrapper}>
                 <Header />
                 <main>
