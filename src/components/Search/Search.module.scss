@@ -5,6 +5,10 @@
 
     width: 450px;
     margin: 0 auto;
+
+    @media screen and (max-width: 450px) {
+        width: 100%;
+    }
 }
 
 .title {
@@ -17,6 +21,10 @@
 
     &DarkTheme {
         color: $white;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 20px;
     }
 }
 
