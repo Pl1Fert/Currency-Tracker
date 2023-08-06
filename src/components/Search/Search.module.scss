@@ -12,10 +12,8 @@
 
     font-weight: 400;
     font-size: 38px;
-    //color: $black-font;
+    color: $black-font;
     text-align: center;
-
-    color: $white;
 
     &DarkTheme {
         color: $white;
@@ -25,7 +23,7 @@
 .input {
     width: 100%;
     padding: 10px 15px;
-    border: none;
+    border: 1px solid $black;
 
     font: inherit;
     font-size: 18px;
@@ -34,8 +32,13 @@
     outline: none;
     border-radius: 8px;
 
-    color: $light-grey-font;
-    background-color: $input-background;
+    color: $black-font;
+    background-color: $white;
+
+    &DarkTheme {
+        color: $light-grey-font;
+        background-color: $input-background;
+    }
 }
 
 .currencyList {
@@ -47,19 +50,24 @@
     max-height: 135px;
     height: auto;
 
-    color: $light-grey-font;
-    background-color: $input-background;
+    color: $black-font;
+    background-color: $white;
 
     overflow: auto;
     z-index: 100;
     transition: all 0.3s linear;
     cursor: pointer;
 
+    &DarkTheme {
+        color: $light-grey-font;
+        background-color: $input-background;
+    }
+
     &Item {
         padding: 10px 15px;
 
         &:hover {
-            background-color: $hover-input-background;
+            background-color: $light-grey;
         }
 
         &Button {
@@ -72,9 +80,19 @@
 
             outline: none;
             background-color: transparent;
-            color: $light-grey-font;
+            color: $black-font;
 
             cursor: pointer;
+
+            &DarkTheme {
+                color: $light-grey-font;
+            }
+        }
+
+        &DarkTheme {
+            &:hover {
+                background-color: $hover-input-background;
+            }
         }
     }
 }

@@ -1,12 +1,14 @@
 import { Component, SyntheticEvent } from "react";
+import { connect, ConnectedProps } from "react-redux";
 
 import { CurrencyService } from "@/services";
+import { RootState } from "@/store";
 
 import { IProps, IState } from "./Search.interfaces";
 import styles from "./Search.module.scss";
 
-export class Search extends Component<IProps, IState> {
-    constructor(props: IProps) {
+class Search extends Component<Props, IState> {
+    constructor(props: Props) {
         super(props);
         this.state = {
             isListOpen: true,
@@ -36,7 +38,7 @@ export class Search extends Component<IProps, IState> {
 
     override render() {
         const { isListOpen } = this.state;
-        const { inputValue } = this.props;
+        const { inputValue, darkTheme } = this.props;
         const symbols: string[] = CurrencyService.getCurrencySymbols();
         const filteredSymbols = symbols
             .filter((symbol) => symbol.toLowerCase().includes(inputValue.toLowerCase()))
@@ -44,25 +46,49 @@ export class Search extends Component<IProps, IState> {
 
         return (
             <div>
-                <h1 className={styles.title}>Search currency in the bank</h1>
+                <h1
+                    className={
+                        darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
+                    }>
+                    Search currency in the bank
+                </h1>
                 <div className={styles.inputContainer}>
                     <input
                         type="text"
                         placeholder="Сurrency search..."
                         value={inputValue}
                         onChange={this.handleChange}
-                        className={styles.input}
+                        className={
+                            darkTheme
+                                ? `${styles.input} ${styles.inputDarkTheme}`
+                                : `${styles.input}`
+                        }
                         onClick={this.handleInputClick}
                     />
-                    <ul className={styles.currencyList}>
+                    <ul
+                        className={
+                            darkTheme
+                                ? `${styles.currencyList} ${styles.currencyListDarkTheme}`
+                                : `${styles.currencyList}`
+                        }>
                         {inputValue.length !== 0 &&
                             isListOpen &&
                             filteredSymbols.map((symbol) => (
-                                <li key={symbol} className={styles.currencyListItem}>
+                                <li
+                                    key={symbol}
+                                    className={
+                                        darkTheme
+                                            ? `${styles.currencyListItem} ${styles.currencyListItemDarkTheme}`
+                                            : `${styles.currencyListItem}`
+                                    }>
                                     <button
                                         type="button"
                                         onClick={this.handleItemClick}
-                                        className={styles.currencyListItemButton}>
+                                        className={
+                                            darkTheme
+                                                ? `${styles.currencyListItemButton} ${styles.currencyListItemButtonDarkTheme}`
+                                                : `${styles.currencyListItemButton}`
+                                        }>
                                         {symbol}
                                     </button>
                                 </li>
@@ -73,3 +99,16 @@ export class Search extends Component<IProps, IState> {
         );
     }
 }
+
+const mapStateToProps = (state: RootState, ownProps: IProps) => ({
+    darkTheme: state.theme.darkTheme,
+    ...ownProps,
+});
+
+const connected = connect(mapStateToProps);
+
+type Props = ConnectedProps<typeof connected>;
+
+const connector = connected(Search);
+
+export { connector as Search };
