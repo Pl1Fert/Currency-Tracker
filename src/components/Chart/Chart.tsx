@@ -1,75 +1,83 @@
-import "chartjs-adapter-luxon";
+/* eslint-disable simple-import-sort/imports */
 
 import { Chart as ChartJS, registerables, TimeSeriesScale, Tooltip } from "chart.js";
-import {
-    CandlestickController,
-    CandlestickElement,
-    OhlcController,
-    OhlcElement,
-} from "chartjs-chart-financial";
-import { DateTime } from "luxon";
-import React from "react";
 import { Chart as ChartComponent } from "react-chartjs-2";
+import "chartjs-adapter-date-fns";
+import React from "react";
 
 import { IProps, IState } from "./Chart.interfaces";
 
 // import styles from "./Chart.module.scss";
+import { ChartConfig } from "./Chart.config";
+import { CurrencyService } from "@/services";
 
-ChartJS.register(
-    Tooltip,
-    CandlestickController,
-    CandlestickElement,
-    OhlcController,
-    OhlcElement,
-    TimeSeriesScale,
-    ...registerables
-);
+ChartJS.register(Tooltip, TimeSeriesScale, ...registerables);
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class Chart extends React.Component<IProps, IState> {
-    override render() {
-        const { card } = this.props;
-        const data = {
-            datasets: [
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            data: [
                 {
-                    data: [
-                        {
-                            x: DateTime.now().valueOf(),
-                            o: 2,
-                            h: 3,
-                            l: 4,
-                            c: 5,
-                        },
-                        {
-                            x: DateTime.fromISO("2023-07-25").valueOf(),
-                            o: 7,
-                            h: 8,
-                            l: 9,
-                            c: 10,
-                        },
-                        {
-                            x: DateTime.fromISO("2023-07-27").valueOf(),
-                            o: 12,
-                            h: 13,
-                            l: 14,
-                            c: 15,
-                        },
-                    ],
+                    x: 0,
+                    o: 0,
+                    h: 0,
+                    l: 0,
+                    c: 0,
+                    s: [0, 0],
                 },
             ],
         };
+    }
 
+    override async componentDidMount(): Promise<void> {
+        const { symbol } = this.props;
+        const ratesHistory = await CurrencyService.getCurrencyExchangeRateHistory(
+            symbol as string,
+            "BRL"
+        );
+
+        this.setState((prevState) => ({ ...prevState, data: ratesHistory }));
+    }
+
+    override async componentDidUpdate(prevProps: IProps): Promise<void> {
+        const { symbol } = this.props;
+        if (prevProps.symbol === symbol) {
+            return;
+        }
+
+        const ratesHistory = await CurrencyService.getCurrencyExchangeRateHistory(
+            symbol as string,
+            "BRL"
+        );
+
+        this.setState((prevState) => ({ ...prevState, data: ratesHistory }));
+    }
+
+    getConfig() {
+        const config = ChartConfig.data;
+        const { data } = this.state;
+
+        return {
+            datasets: [
+                {
+                    label: config.datasets[0].label,
+                    data,
+                    backgroundColor: config.datasets[0].backgroundColor,
+                },
+            ],
+        };
+    }
+
+    override render() {
         return (
-            <div>
-                <div>
-                    <div>
-                        <img src={card?.icon ?? ""} alt={card?.symbol} />
-                        <h1>{card?.title}</h1>
-                        <p>{card?.symbol}</p>
-                    </div>
-                    <ChartComponent type="candlestick" data={data} />
-                </div>
-            </div>
+            <ChartComponent
+                type="bar"
+                data={this.getConfig()}
+                options={ChartConfig.options}
+                plugins={ChartConfig.plugins}
+            />
         );
     }
 }

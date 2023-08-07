@@ -10,7 +10,7 @@ import styles from "./TimelinePage.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TimelinePage extends React.Component<IProps, IState> {
-    cards = QUOTES_CARDS_ROW.cards;
+    private cards = QUOTES_CARDS_ROW.cards;
 
     constructor(props = {}) {
         super(props);
@@ -44,8 +44,13 @@ class TimelinePage extends React.Component<IProps, IState> {
                             </option>
                         ))}
                     </select>
+                    <div>
+                        <img src={selectedCard?.icon ?? ""} alt={selectedCard?.symbol} />
+                        <h1>{selectedCard?.title}</h1>
+                        <p>{selectedCard?.symbol}</p>
+                    </div>
                 </div>
-                <Chart card={selectedCard} />
+                <Chart symbol={selectedCard?.symbol} />
             </div>
         );
     }
