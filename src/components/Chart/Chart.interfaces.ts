@@ -2,6 +2,8 @@
 
 export interface IProps {
     symbol: string | undefined;
+    startDate: string;
+    endDate: string;
 }
 
 export interface IState {
@@ -13,7 +15,7 @@ export interface IData {
         {
             label: string;
             data: IReturnCurrencyHistory[];
-            backgroundColor: (ctx: any) => "rgba(75,192,192)" | "rgba(255,26,104)";
+            backgroundColor: (ctx: any) => "rgba(22,199,130)" | "rgba(234,57,67)";
         },
     ];
 }

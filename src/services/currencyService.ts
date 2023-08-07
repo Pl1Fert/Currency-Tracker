@@ -48,7 +48,9 @@ interface IReturnCurrencyHistory {
 
 const getCurrencyExchangeRateHistory = async (
     from: string,
-    to: string
+    to: string,
+    startDate: string,
+    endDate: string
 ): Promise<IReturnCurrencyHistory[]> => {
     try {
         const config = {
@@ -56,7 +58,7 @@ const getCurrencyExchangeRateHistory = async (
         };
 
         const { data } = await axios.get<ICurrencyHistory[]>(
-            `${ENV_VARS.COIN_API_URL}/exchangerate/${from}/${to}/history?period_id=1DAY&time_start=2023-05-01T00:00:00&time_end=2023-06-01T00:00:00`,
+            `${ENV_VARS.COIN_API_URL}/exchangerate/${from}/${to}/history?period_id=1DAY&time_start=${startDate}T00:00:00&time_end=${endDate}T00:00:00`,
             config
         );
 

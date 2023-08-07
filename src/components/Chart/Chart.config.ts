@@ -19,13 +19,14 @@ const data: IData = {
                     raw: { o, c },
                 } = ctx;
 
-                return c >= o ? "rgba(75,192,192)" : "rgba(255,26,104)";
+                return c >= o ? "rgba(22,199,130)" : "rgba(234,57,67)";
             },
         },
     ],
 };
 
 const options = {
+    maintainAspectRatio: false,
     parsing: {
         xAxisKey: "x",
         yAxisKey: "s",
@@ -42,9 +43,17 @@ const options = {
                 unit: "day" as const,
                 tooltipFormat: "MMM d, yyyy",
             },
+            grid: {
+                color: "rgba(71,71,71, 0.5)",
+            },
         },
         y: {
             grace: 1,
+            beginAtZero: false,
+            position: "right" as const,
+            grid: {
+                color: "rgba(71,71,71,0.5)",
+            },
         },
     },
     plugins: {
@@ -79,9 +88,11 @@ const candlestick = {
 
         ctx.save();
         ctx.lineWidth = 2;
-        ctx.strokeStyle = "rgba(0,0,0,1)";
 
-        data.datasets[0].data.forEach((_: any, index: number): void => {
+        data.datasets[0].data.forEach((dataPoint: any, index: number): void => {
+            const { o, c } = dataPoint;
+            ctx.strokeStyle = c >= o ? "rgba(22,199,130)" : "rgba(234,57,67)";
+
             ctx.beginPath();
             ctx.moveTo(
                 chart.getDatasetMeta(0).data[index].x,
@@ -117,7 +128,7 @@ const crosshair = {
             tooltip,
             scales: { x, y },
         } = chart;
-        if (tooltip._active && tooltip._active.length) {
+        if (tooltip?._active && tooltip?._active.length) {
             const activePoint = tooltip._active[0];
             ctx.setLineDash([3, 3]);
             ctx.setLineWidth = 2;
@@ -153,7 +164,7 @@ const crosshair = {
                 24
             );
 
-            ctx.fillStyle = "white";
+            ctx.fillStyle = "transparent";
             ctx.font = "bold 12px sans-serif";
             ctx.textAlign = "center";
             ctx.textBaseLine = "middle";
