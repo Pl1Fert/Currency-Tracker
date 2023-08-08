@@ -1,7 +1,7 @@
-import React, { SyntheticEvent } from "react";
+import { Component, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
-import { Chart } from "@/components";
+import { Chart, Notification, NotificationDisplay } from "@/components";
 import { ICurrencyCard } from "@/components/components.interfaces";
 import { QUOTES_CARDS_ROW } from "@/constants";
 import { CurrencyService, DateService } from "@/services";
@@ -11,8 +11,10 @@ import { IProps, IState } from "./TimelinePage.interfaces";
 import styles from "./TimelinePage.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function
-class TimelinePage extends React.Component<Props, IState> {
+class TimelinePage extends Component<Props, IState> {
     private cards = QUOTES_CARDS_ROW.cards;
+
+    private notification = new Notification();
 
     constructor(props: Props) {
         super(props);
@@ -35,11 +37,15 @@ class TimelinePage extends React.Component<Props, IState> {
 
     handleStartDateChange = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
+        const { endDate } = this.state;
+        this.notification.setDiff(DateService.calculateDateDiff(target.value, endDate));
         this.setState((prevState) => ({ ...prevState, startDate: target.value }));
     };
 
     handleEndDateChange = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
+        const { startDate } = this.state;
+        this.notification.setDiff(DateService.calculateDateDiff(startDate, target.value));
         this.setState((prevState) => ({ ...prevState, endDate: target.value }));
     };
 
@@ -121,6 +127,7 @@ class TimelinePage extends React.Component<Props, IState> {
                     </div>
                 </div>
                 <Chart symbol={selectedCard?.symbol} startDate={startDate} endDate={endDate} />
+                <NotificationDisplay notification={this.notification} />
             </div>
         );
     }

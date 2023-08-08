@@ -19,6 +19,12 @@ const getPreviousDates = (): string[] => {
     return datesArray.map((dateItem) => formatDate(dateItem));
 };
 
+const calculateDateDiff = (startDate: string, endDate: string): number => {
+    const diff = Date.parse(endDate) - Date.parse(startDate);
+    return diff / 1000 / 3600 / 24;
+};
+
 export const DateService = {
     getPreviousDates,
+    calculateDateDiff,
 };

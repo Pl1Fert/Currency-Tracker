@@ -11,5 +11,7 @@ export * from "./Modal";
 export * from "./NavBar";
 export * from "./NavItem";
 export * from "./NavList";
+export * from "./Notification";
+export * from "./NotificationDisplay";
 export * from "./StockCard";
 export * from "./StocksCardsRow";
