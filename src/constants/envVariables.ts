@@ -13,5 +13,5 @@ export const ENV_VARS = {
     TRIPMAP_API_KEY,
     TRIPMAP_API_URL,
     COIN_API_KEY,
-    COIN_API_URL
+    COIN_API_URL,
 };

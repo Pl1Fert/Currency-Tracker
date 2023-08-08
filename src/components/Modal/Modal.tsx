@@ -44,9 +44,7 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
                     })
                 );
             })
-            .catch(() => {
-                throw new Error("error");
-            });
+            .catch(() => {});
     }, [currencyState.toCurrencyOption]);
 
     const handleFromCurrencyAmountChange = (e: SyntheticEvent) => {
