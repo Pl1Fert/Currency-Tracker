@@ -106,31 +106,55 @@ const getRandomCurrencies = (): [string, string] => {
     return [firstSymbol, secondSymbol];
 };
 
-const getCurrencyRates = async (): Promise<Map<string, number>> => {
-    const map = new Map<string, number>();
-
+const getCurrencyRates = async (): Promise<ICurrencyRate[] | undefined> => {
     try {
         const symbols: string[] = getCurrencySymbols();
         const promisesArray: Promise<AxiosResponse<ICurrencyRate, unknown>>[] = symbols.map(
             (symbol) =>
                 axios.get<ICurrencyRate>(
-                    `${ENV_VARS.CURRENCY_API_URL}/lates?apikey=${ENV_VARS.CURRENCY_API_KEY}&currencies=BRL&base_currency=${symbol}`
+                    `${ENV_VARS.CURRENCY_API_URL}/latest?apikey=${ENV_VARS.CURRENCY_API_KEY}&currencies=BRL&base_currency=${symbol}`
                 )
         );
 
-        const array: number[] = await Promise.all(promisesArray).then((responses) =>
-            responses.map((response) => response.data.data.BRL.value)
+        const array = await Promise.all(promisesArray).then((responses) =>
+            responses.map((response) => response.data)
         );
 
-        for (let i = 0; i < symbols.length; i += 1) {
-            map.set(symbols.at(i) as string, array[i] as number);
-        }
+        console.log(array);
+
+        return array;
     } catch (error) {
         console.log(error);
     }
 
-    return map;
+    return undefined;
 };
+
+// const getCurrencyRates = async (): Promise<Map<string, number>> => {
+//     const map = new Map<string, number>();
+
+//     try {
+//         const symbols: string[] = getCurrencySymbols();
+//         const promisesArray: Promise<AxiosResponse<ICurrencyRate, unknown>>[] = symbols.map(
+//             (symbol) =>
+//                 axios.get<ICurrencyRate>(
+//                     `${ENV_VARS.CURRENCY_URL}/latest?apikey=${ENV_VARS.CURRENCY_API_KEY}&currencies=BRL&base_currency=${symbol}`
+//                 )
+//         );
+
+// const array: number[] = await Promise.all(promisesArray).then((responses) =>
+//     responses.map((response) => response.data.data.BRL.value)
+// );
+
+// for (let i = 0; i < symbols.length; i += 1) {
+//     map.set(symbols.at(i) as string, array[i] as number);
+// }
+//     } catch (error) {
+//         console.log(error);
+//     }
+
+//     return map;
+// };
 
 export const CurrencyService = {
     getCurrencyExchangeRate,

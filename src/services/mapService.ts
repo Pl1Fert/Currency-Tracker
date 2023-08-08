@@ -41,10 +41,12 @@ const getBanks = async (coords: ICoords): Promise<INewFeature[] | undefined> => 
             `${ENV_VARS.TRIPMAP_API_URL}&lon=${coords.longitude}&lat=${coords.latitude}&kinds=bank&apikey=${ENV_VARS.TRIPMAP_API_KEY}`
         );
 
-        return data?.features.map((feature: IFeature) => ({
-            ...feature,
-            currencies: CurrencyService.getRandomCurrencies(),
-        }));
+        return data?.features.map(
+            (feature: IFeature): INewFeature => ({
+                ...feature,
+                currencies: CurrencyService.getRandomCurrencies(),
+            })
+        );
     } catch (error) {
         console.log(error);
         return undefined;
