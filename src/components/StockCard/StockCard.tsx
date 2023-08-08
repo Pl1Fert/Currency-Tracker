@@ -17,7 +17,7 @@ export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {
                     : `${styles.stockCard}`
             }>
             <div>
-                <img src={card.icon} alt="title" className={styles.icon} />
+                <img src={card.icon} alt={card.title} className={styles.icon} />
             </div>
             <div>
                 <p

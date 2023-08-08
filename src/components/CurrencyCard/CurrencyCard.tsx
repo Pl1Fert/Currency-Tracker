@@ -26,7 +26,7 @@ export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card, mo
                 tabIndex={0}
                 role="button">
                 <div>
-                    <img src={card.icon} alt="title" className={styles.icon} />
+                    <img src={card.icon} alt={card.title} className={styles.icon} />
                 </div>
                 <div>
                     <p

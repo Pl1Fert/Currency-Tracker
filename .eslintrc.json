@@ -1,7 +1,13 @@
 {
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint", "prettier", "simple-import-sort", "import"],
-    "extends": ["airbnb", "airbnb-typescript", "plugin:@typescript-eslint/recommended", "prettier"],
+    "extends": [
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:cypress/recommended"
+    ],
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.d.ts"],

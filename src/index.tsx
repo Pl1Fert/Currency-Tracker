@@ -15,3 +15,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </PersistGate>
     </Provider>
 );
+
+declare global {
+    interface Window {
+        Cypress?: unknown;
+        store?: unknown;
+    }
+}
+
+if (window.Cypress) {
+    window.store = store;
+}
