@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const config = require("./webpack.config.js");
-const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
+const dotenv = require("dotenv").config({ path: __dirname + "/.env", systemvars: true });
 
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");

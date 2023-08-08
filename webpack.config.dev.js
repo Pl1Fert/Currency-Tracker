@@ -2,7 +2,7 @@ const { merge } = require("webpack-merge");
 const config = require("./webpack.config.js");
 const path = require("path");
 const webpack = require("webpack");
-const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
+const dotenv = require("dotenv").config({ path: __dirname + "/.env", systemvars: true });
 
 module.exports = merge(config, {
     mode: "development",
