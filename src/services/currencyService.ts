@@ -35,7 +35,6 @@ const getCurrencyExchangeRateHistory = async (
 
         return array;
     } catch (error) {
-        console.log(error);
         return [];
     }
 };
@@ -48,8 +47,7 @@ const getCurrencyExchangeRate = async (from: string, to: string): Promise<number
 
         return data.data[`${to}`]!.value;
     } catch (error) {
-        console.log(error);
-        return 1;
+        return -1;
     }
 };
 
@@ -68,7 +66,7 @@ const getRandomCurrencies = (): [string, string] => {
     return [firstSymbol, secondSymbol];
 };
 
-const getCurrencyRates = async (): Promise<ICurrencyRateResponse[] | undefined> => {
+const getCurrencyRates = async (): Promise<ICurrencyRateResponse[]> => {
     try {
         const symbols: string[] = getCurrencySymbols();
         const promisesArray: Promise<AxiosResponse<ICurrencyRateResponse, unknown>>[] = symbols.map(
@@ -83,9 +81,9 @@ const getCurrencyRates = async (): Promise<ICurrencyRateResponse[] | undefined> 
         );
 
         return array;
-    } catch (error) {}
-
-    return undefined;
+    } catch (error) {
+        return [];
+    }
 };
 
 export const CurrencyService = {

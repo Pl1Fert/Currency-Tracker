@@ -30,14 +30,18 @@ export class MapComponent extends Component<IProps, IState> {
                 longitude: position.coords.longitude,
             })
                 .then((features) => {
-                    if (features) {
+                    if (features.length > 0) {
                         this.setState((prevState) => ({
                             ...prevState,
                             features,
                         }));
                     }
+
+                    throw new Error("Error");
                 })
-                .catch(() => {});
+                .catch(() => {
+                    throw new Error("Error");
+                });
         };
 
         const getLocation = (): void => {

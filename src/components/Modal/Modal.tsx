@@ -33,6 +33,10 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
     useEffect(() => {
         CurrencyService.getCurrencyExchangeRate(card.symbol, currencyState.toCurrencyOption)
             .then((newExchangeRate) => {
+                if (newExchangeRate === -1) {
+                    throw new Error("error");
+                }
+
                 setCurrencyState(
                     (prevState): IState => ({
                         ...prevState,
@@ -40,7 +44,9 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
                     })
                 );
             })
-            .catch(() => {});
+            .catch(() => {
+                throw new Error("error");
+            });
     }, [currencyState.toCurrencyOption]);
 
     const handleFromCurrencyAmountChange = (e: SyntheticEvent) => {

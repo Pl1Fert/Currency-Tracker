@@ -10,9 +10,9 @@ const initialState: ICurrencyRates = {
 
 export const getAllRates = createAsyncThunk<ICurrencyRates>("currency/getAllRates", async () => {
     try {
-        const data: ICurrencyRateResponse[] | undefined = await CurrencyService.getCurrencyRates();
+        const data: ICurrencyRateResponse[] = await CurrencyService.getCurrencyRates();
         const arrayRates: ICurrencyRate[] = [];
-        if (data) {
+        if (data.length > 0) {
             const ratesValues: number[] = data.map((item) => item.data.BRL.value);
             const symbols: string[] = CurrencyService.getCurrencySymbols();
             for (let i = 0; i < symbols.length; i += 1) {
