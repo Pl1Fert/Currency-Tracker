@@ -1,3 +1,4 @@
+export * from "./Chart";
 export * from "./CurrencyCard";
 export * from "./CurrencyCardsRow";
 export * from "./Footer";
@@ -11,6 +12,8 @@ export * from "./Modal";
 export * from "./NavBar";
 export * from "./NavItem";
 export * from "./NavList";
+export * from "./Notification";
+export * from "./NotificationDisplay";
 export * from "./Search";
 export * from "./StockCard";
 export * from "./StocksCardsRow";
