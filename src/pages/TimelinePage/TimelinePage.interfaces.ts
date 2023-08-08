@@ -1,4 +1,4 @@
-import { ICurrencyCard } from "@/components/components.interfaces";
+import { ICurrencyCard } from "@/types/cardsTypes";
 
 export interface IState {
     selectedCard: ICurrencyCard | undefined;

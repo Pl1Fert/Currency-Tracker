@@ -1,39 +1,9 @@
 import axios from "axios";
 
 import { ENV_VARS } from "@/constants";
+import { IBanks, ICoords, IFeature, INewFeature } from "@/types/mapTypes";
 
 import { CurrencyService } from "./currencyService";
-
-interface ICoords {
-    latitude: number;
-    longitude: number;
-}
-
-interface IFeature {
-    type: string;
-    id: string;
-    geometry: {
-        type: string;
-        coordinates: [number, number];
-    };
-    properties: {
-        xid: string;
-        name: string;
-        dist: number;
-        rate: number;
-        osm: string;
-        kinds: string;
-    };
-}
-
-interface INewFeature extends IFeature {
-    currencies: [string, string];
-}
-
-interface IBanks {
-    type: string;
-    features: IFeature[];
-}
 
 const getBanks = async (coords: ICoords): Promise<INewFeature[] | undefined> => {
     try {

@@ -1,4 +1,4 @@
-import { ICurrencyCard } from "../components.interfaces";
+import { ICurrencyCard } from "@/types/cardsTypes";
 
 export interface ModalProps {
     closeModal: () => void;

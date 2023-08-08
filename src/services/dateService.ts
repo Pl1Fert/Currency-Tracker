@@ -24,7 +24,18 @@ const calculateDateDiff = (startDate: string, endDate: string): number => {
     return diff / 1000 / 3600 / 24;
 };
 
+const isCurrencyDateExpired = (timeToCheck: string): boolean => {
+    const time = Date.parse(timeToCheck) - Date.now();
+    const hours = time / 1000 / 60 / 60;
+    if (hours > 12 || !hours) {
+        return true;
+    }
+
+    return false;
+};
+
 export const DateService = {
     getPreviousDates,
     calculateDateDiff,
+    isCurrencyDateExpired,
 };

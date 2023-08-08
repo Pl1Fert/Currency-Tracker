@@ -1,10 +1,6 @@
-interface ICard {
-    id: number;
-    title: string;
-    icon: string;
-}
+import { IStockCard } from "@/types/cardsTypes";
 
 export interface StockCardProps {
-    card: ICard;
+    card: IStockCard;
     text?: string;
 }

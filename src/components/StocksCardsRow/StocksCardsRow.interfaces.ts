@@ -1,4 +1,4 @@
-import { IStockCard } from "../components.interfaces";
+import { IStockCard } from "@/types/cardsTypes";
 
 export interface StocksCardsRowProps {
     title: string;

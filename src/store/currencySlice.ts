@@ -1,16 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { CurrencyService } from "@/services";
-
-interface ICurrencyRate {
-    symbol: string;
-    value: number;
-}
-
-interface ICurrencyRates {
-    last_updated_at: string;
-    rates: ICurrencyRate[];
-}
+import { ICurrencyRate, ICurrencyRateResponse, ICurrencyRates } from "@/types/currencyTypes";
 
 const initialState: ICurrencyRates = {
     last_updated_at: "",
@@ -19,7 +10,7 @@ const initialState: ICurrencyRates = {
 
 export const getAllRates = createAsyncThunk<ICurrencyRates>("currency/getAllRates", async () => {
     try {
-        const data = await CurrencyService.getCurrencyRates();
+        const data: ICurrencyRateResponse[] | undefined = await CurrencyService.getCurrencyRates();
         const arrayRates: ICurrencyRate[] = [];
         if (data) {
             const ratesValues: number[] = data.map((item) => item.data.BRL.value);

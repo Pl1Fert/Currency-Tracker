@@ -2,10 +2,10 @@ import { Component, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { Chart, Notification, NotificationDisplay } from "@/components";
-import { ICurrencyCard } from "@/components/components.interfaces";
 import { QUOTES_CARDS_ROW } from "@/constants";
 import { CurrencyService, DateService } from "@/services";
 import { RootState } from "@/store";
+import { ICurrencyCard } from "@/types/cardsTypes";
 
 import { IProps, IState } from "./TimelinePage.interfaces";
 import styles from "./TimelinePage.module.scss";
