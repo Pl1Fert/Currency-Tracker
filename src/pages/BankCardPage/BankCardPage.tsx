@@ -1,11 +1,30 @@
-import { FC } from "react";
+import { Component } from "react";
 
+import { MapComponent, Search } from "@/components";
+
+import { IProps, IState } from "./BankCardPage.interfaces";
 import styles from "./BankCardPage.module.scss";
 
-interface BankCardPageProps {}
+// eslint-disable-next-line react/prefer-stateless-function
+export default class BankCardPage extends Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            inputValue: "",
+        };
+    }
 
-const BankCardPage: FC<BankCardPageProps> = () => (
-    <div className={styles.BankCardPage}>BankCardPage Component</div>
-);
+    setInputValue = (newValue: string): void => {
+        this.setState((prevState) => ({ ...prevState, inputValue: newValue }));
+    };
 
-export default BankCardPage;
+    override render() {
+        const { inputValue } = this.state;
+        return (
+            <div className={styles.mapContainer}>
+                <Search inputValue={inputValue} setInputValue={this.setInputValue} />
+                <MapComponent inputValue={inputValue} />
+            </div>
+        );
+    }
+}

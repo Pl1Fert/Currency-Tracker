@@ -7,6 +7,10 @@
     &DarkTheme {
         color: $white-font;
     }
+
+    @media screen and (max-width: 500px) {
+        font-size: 15px;
+    }
 }
 
 .cardsRow {
@@ -15,6 +19,15 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 60px;
+
+    @media screen and (max-width: 1250px) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: 500px) {
+        gap: 30px;
+    }
 }
 
 .border {

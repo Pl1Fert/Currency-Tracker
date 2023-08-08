@@ -97,6 +97,15 @@ const getCurrencySymbols = (): string[] => {
     return cards.map((card): string => card.symbol);
 };
 
+const getRandomCurrencies = (): [string, string] => {
+    const symbols = getCurrencySymbols();
+
+    const firstSymbol = symbols[Math.floor(Math.random() * symbols.length)] ?? "";
+    const secondSymbol = symbols[Math.floor(Math.random() * symbols.length)] ?? "";
+
+    return [firstSymbol, secondSymbol];
+};
+
 const getCurrencyRates = async (): Promise<Map<string, number>> => {
     const map = new Map<string, number>();
 
@@ -128,4 +137,5 @@ export const CurrencyService = {
     getCurrencyRates,
     getCurrencySymbols,
     getCurrencyExchangeRateHistory,
+    getRandomCurrencies,
 };

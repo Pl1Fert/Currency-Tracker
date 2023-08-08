@@ -1,3 +1,11 @@
-.BankCardPage {
-    display: block;
+.mapContainer {
+    margin-bottom: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+
+    @media screen and (max-width: 500px) {
+        gap: 60px;
+    }
 }

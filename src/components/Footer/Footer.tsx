@@ -21,7 +21,9 @@ export const Footer: FC = () => {
                     </div>
                     <p
                         className={
-                            darkTheme ? `${styles.footerDarkThemeText}` : `${styles.footerText}`
+                            darkTheme
+                                ? `${styles.footerText} ${styles.footerTextDarkTheme}`
+                                : `${styles.footerText}`
                         }>
                         Since then, the company has grown organically to. Starsup is the
                         world&apos;s largest trading platform, with $12 billion worth of currency

@@ -19,4 +19,14 @@
     &:hover::after {
         width: 100%;
     }
+
+    @media screen and (max-width: 900px) {
+        &::after {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 13px;
+    }
 }
