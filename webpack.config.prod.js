@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const config = require("./webpack.config.js");
-const dotenv = require("dotenv").config({ path: __dirname + "/.env", systemvars: true });
+const Dotenv = require("dotenv-webpack");
 
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -23,9 +23,11 @@ module.exports = merge(config, {
         new OptimizeCssAssetsPlugin(),
         new webpack.DefinePlugin({
             isDevelopment: false,
-            "process.env": JSON.stringify(dotenv.parsed),
             "process.env.NODE_ENV": JSON.stringify("production"),
         }),
         new CompressionPlugin(),
+        new Dotenv({
+            systemvars: true,
+        }),
     ],
 });
