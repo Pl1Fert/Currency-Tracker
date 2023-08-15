@@ -1,10 +1,11 @@
-import mapboxgl, { Map, Marker } from "mapbox-gl";
 import { Component, createRef } from "react";
+import mapboxgl, { Map, Marker } from "mapbox-gl";
 
 import { ENV_VARS } from "@/constants";
 import { CurrencyService, MapService } from "@/services";
 
 import { IProps, IState } from "./mapComponent.interfaces";
+
 import styles from "./mapComponent.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function

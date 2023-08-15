@@ -5,6 +5,7 @@ import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import { CurrencyCardProps } from "./currencyCard.interfaces";
+
 import styles from "./currencyCard.module.scss";
 
 export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card, modal }) => {

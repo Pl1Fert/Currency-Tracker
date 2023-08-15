@@ -5,6 +5,7 @@ import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import { FooterListProps } from "./footerList.interfaces";
+
 import styles from "./footerList.module.scss";
 
 export const FooterList: FC<FooterListProps> = ({ title, links }) => {

@@ -4,6 +4,7 @@ import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import { StockCardProps } from "./stockCard.interfaces";
+
 import styles from "./stockCard.module.scss";
 
 export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {

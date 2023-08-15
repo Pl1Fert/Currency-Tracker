@@ -5,6 +5,7 @@ import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import { StocksCardsRowProps } from "./stocksCardsRow.interfaces";
+
 import styles from "./stocksCardsRow.module.scss";
 
 export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {

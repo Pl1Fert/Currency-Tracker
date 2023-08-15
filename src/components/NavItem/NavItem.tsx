@@ -5,6 +5,7 @@ import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import { NavItemProps } from "./navItem.interfaces";
+
 import styles from "./navItem.module.scss";
 
 export const NavItem: FC<NavItemProps> = ({ to, title }) => {

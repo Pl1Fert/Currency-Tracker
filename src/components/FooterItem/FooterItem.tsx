@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AppRoutes } from "@/constants";
 
 import { FooterItemProps } from "./footerItem.interfaces";
+
 import styles from "./footerItem.module.scss";
 
 export const FooterItem: FC<FooterItemProps> = ({ title }) => (

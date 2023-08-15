@@ -8,6 +8,7 @@ import { CurrencyService, DateService } from "@/services";
 import { RootState } from "@/store";
 
 import { IProps, IState } from "./timeLinePage.interfaces";
+
 import styles from "./timeLinePage.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function

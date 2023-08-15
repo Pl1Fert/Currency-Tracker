@@ -1,13 +1,12 @@
 import { FC } from "react";
 
+import { CONTACTS_LINKS } from "@/constants";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
 import styles from "./contactsPage.module.scss";
 
-interface ContactsPageProps {}
-
-const ContactsPage: FC<ContactsPageProps> = () => {
+const ContactsPage: FC = () => {
     const darkTheme = useAppSelector(themeSelector);
 
     const linkStyles = darkTheme ? `${styles.link} ${styles.linkDarkTheme}` : `${styles.link}`;
@@ -19,21 +18,17 @@ const ContactsPage: FC<ContactsPageProps> = () => {
                     Phone: +375 (29) 999-99-99
                 </a>
                 <ul className={styles.list}>
-                    <li>
-                        <a className={linkStyles} href="https://www.youtube.com/">
-                            YouTube
-                        </a>
-                    </li>
-                    <li>
-                        <a className={linkStyles} href="https://www.facebook.com/">
-                            Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a className={linkStyles} href="https://www.instagram.com/">
-                            Instagram
-                        </a>
-                    </li>
+                    {CONTACTS_LINKS.map((link) => (
+                        <li key={link.id}>
+                            <a
+                                href={link.dest}
+                                className={linkStyles}
+                                target="_blank"
+                                rel="noreferrer">
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

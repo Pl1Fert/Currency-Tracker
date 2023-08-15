@@ -5,6 +5,7 @@ import { CurrencyService } from "@/services";
 import { RootState } from "@/store";
 
 import { IProps, IState } from "./search.interfaces";
+
 import styles from "./search.module.scss";
 
 class Search extends Component<Props, IState> {
