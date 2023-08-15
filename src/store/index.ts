@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import { currencyReducer } from "./currencySlice";
+import { modalReducer } from "./modalSlice";
 import { themeReducer } from "./themeSlice";
 
 const persistConfig = {
@@ -22,6 +23,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     theme: themeReducer,
     currency: currencyReducer,
+    modal: modalReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

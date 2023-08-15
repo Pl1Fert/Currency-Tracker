@@ -1,7 +1,6 @@
 import { ICurrencyCard } from "@/interfaces/cardsTypes";
 
 export interface ModalProps {
-    closeModal: () => void;
     card: ICurrencyCard;
 }
 

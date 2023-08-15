@@ -1,29 +1,34 @@
 import { FC } from "react";
 
 import { Modal } from "@/components";
-import { useAppSelector } from "@/hooks";
-import { themeSelector } from "@/store/selectors";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { modalActions } from "@/store/modalSlice";
+import { modalSelector, themeSelector } from "@/store/selectors";
 
 import { CurrencyCardProps } from "./currencyCard.interfaces";
 
 import styles from "./currencyCard.module.scss";
 
-export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card, modal }) => {
+export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card }) => {
     const darkTheme = useAppSelector(themeSelector);
+    const cardIdToOpenModal = useAppSelector(modalSelector);
+    const dispatch = useAppDispatch();
+
+    const handleClick = () => {
+        dispatch(modalActions.openModal(card.id));
+    };
 
     return (
         <>
-            {modal.cardIdToOpenModal === card.id && (
-                <Modal closeModal={modal.closeModal} card={card} />
-            )}
+            {cardIdToOpenModal === card.id && <Modal card={card} />}
             <div
                 className={
                     darkTheme
                         ? `${styles.currencyCard} ${styles.currencyCardDarkTheme}`
                         : `${styles.currencyCard}`
                 }
-                onClick={() => modal.openModal(card.id)}
-                onKeyDown={() => modal.openModal(card.id)}
+                onClick={handleClick}
+                onKeyDown={handleClick}
                 tabIndex={0}
                 role="button">
                 <div>

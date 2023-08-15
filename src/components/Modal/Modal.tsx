@@ -1,19 +1,24 @@
 import { FC, SyntheticEvent, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
+import { useAppDispatch } from "@/hooks";
 import { CurrencyService } from "@/services";
+import { modalActions } from "@/store/modalSlice";
 
 import { IState, ModalProps } from "./modal.interfaces";
 
 import styles from "./modal.module.scss";
 
-export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
+export const Modal: FC<ModalProps> = ({ card }) => {
     const initialState: IState = {
         currencyAmount: 1,
         amountInFromCurrency: true,
         toCurrencyOption: "BRL",
         exchangeRate: 1,
     };
+
+    const dispatch = useAppDispatch();
+
     const [currencyState, setCurrencyState] = useState<IState>(initialState);
     const currencySymbols: string[] = [
         ...CurrencyService.getCurrencySymbols().filter((symbol) => symbol !== card.symbol),
@@ -69,8 +74,17 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
         );
     };
 
+    const handleClose = () => {
+        dispatch(modalActions.closeModal());
+    };
+
     return createPortal(
-        <div className={styles.modalWrapper}>
+        <div
+            className={styles.modalWrapper}
+            onClick={handleClose}
+            onKeyDown={handleClose}
+            tabIndex={0}
+            role="button">
             <div className={styles.modal}>
                 <div>
                     <div className={styles.row}>
@@ -105,7 +119,7 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
                         </select>
                     </div>
                 </div>
-                <button type="button" onClick={closeModal} className={styles.closeButton}>
+                <button type="button" onClick={handleClose} className={styles.closeButton}>
                     Close
                 </button>
             </div>

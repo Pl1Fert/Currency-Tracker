@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
@@ -10,21 +10,6 @@ import styles from "./currencyCardsRow.module.scss";
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
     const darkTheme = useAppSelector(themeSelector);
-    const [cardIdToOpenModal, setCardIdToOpenModal] = useState<number>(0);
-
-    const closeModal = () => {
-        setCardIdToOpenModal(() => 0);
-    };
-
-    const openModal = (id: number) => {
-        setCardIdToOpenModal(() => id);
-    };
-
-    const modal = {
-        cardIdToOpenModal,
-        closeModal,
-        openModal,
-    };
 
     return (
         <section>
@@ -45,7 +30,6 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
                                 ? `R$ ${rates?.get(card.symbol)?.toFixed(2)}`
                                 : undefined
                         }
-                        modal={modal}
                     />
                 ))}
             </div>
