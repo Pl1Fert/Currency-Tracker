@@ -7,6 +7,7 @@ import { AppRoutes } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 import { themeActions } from "@/store/themeSlice";
+import { combineClassNames } from "@/utils";
 
 import styles from "./navBar.module.scss";
 
@@ -29,10 +30,7 @@ export const NavBar: FC = () => {
                 <img src={logo} alt="logo" className={styles.logo} />
             </Link>
             <NavList />
-            <div
-                className={
-                    darkTheme ? `${styles.radios} ${styles.radiosDarkTheme}` : `${styles.radios}`
-                }>
+            <div className={combineClassNames(styles.radios!, styles.radiosDarkTheme!, darkTheme)}>
                 <input
                     type="radio"
                     id={styles.falseRadio}

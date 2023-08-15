@@ -34,7 +34,7 @@
 
     &::after {
         content: "";
-        display: block;
+        display: none;
         position: absolute;
         right: 0;
         top: 50%;
@@ -46,6 +46,10 @@
 
         transform: translateY(-50%) rotate(135deg);
         transition: all 0.3s linear;
+
+        @media screen and (max-width: 900px) {
+            display: block;
+        }
 
         @media screen and (max-width: 500px) {
             width: 10px;

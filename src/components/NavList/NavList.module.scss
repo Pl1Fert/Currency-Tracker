@@ -24,7 +24,7 @@
 
         width: 100%;
         gap: 20px;
-        padding-bottom: 20px;
+        padding: 20px 0;
         flex-direction: column;
 
         transform: translateX(-50%);
@@ -48,10 +48,7 @@
 .menuBtn {
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 35px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     width: 26px;
     height: 26px;
     cursor: pointer;
@@ -103,5 +100,5 @@
 
 #menuToggle:checked ~ .navList {
     visibility: visible;
-    top: 10%;
+    top: 7%;
 }

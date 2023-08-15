@@ -4,6 +4,7 @@ import { NavItem } from "@/components";
 import { NAV_LINKS } from "@/constants";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import styles from "./navList.module.scss";
 
@@ -16,10 +17,7 @@ export const NavList: FC = () => {
             <label className={styles.menuBtn} htmlFor={styles.menuToggle}>
                 <span />
             </label>
-            <ul
-                className={
-                    darkTheme ? `${styles.navList} ${styles.navListDarkTheme}` : `${styles.navList}`
-                }>
+            <ul className={combineClassNames(styles.navList!, styles.navListDarkTheme!, darkTheme)}>
                 {NAV_LINKS.map((link) => (
                     <li key={link.id}>
                         <NavItem to={link.dest} title={link.title} />

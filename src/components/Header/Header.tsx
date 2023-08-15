@@ -4,6 +4,7 @@ import logo from "@/assets/logo.svg";
 import { NavBar } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import styles from "./header.module.scss";
 
@@ -27,11 +28,11 @@ export const Header: FC = () => {
             <div className={styles.updatedRow}>
                 <span className={styles.updatedPulseButton} />
                 <p
-                    className={
+                    className={combineClassNames(
+                        styles.updatedText!,
+                        styles.updatedTextDarkTheme!,
                         darkTheme
-                            ? `${styles.updatedText} ${styles.updatedTextDarkTheme}`
-                            : `${styles.updatedText}`
-                    }>
+                    )}>
                     Last updated at 11:59pm
                 </p>
             </div>

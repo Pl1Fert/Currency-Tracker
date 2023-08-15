@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 import { CurrencyCardsRow, StocksCardsRow } from "@/components";
 import { QUOTES_CARDS_ROW, STOCKS_CARDS_ROW } from "@/constants";
@@ -14,10 +14,12 @@ const HomePage: FC = () => {
     const dispatch = useAppDispatch();
     const currency = useAppSelector(currencySelector);
 
-    if (DateService.isCurrencyDateExpired(currency.last_updated_at)) {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
-        dispatch(getAllRates());
-    }
+    useEffect(() => {
+        if (DateService.isCurrencyDateExpired(currency.last_updated_at)) {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
+            dispatch(getAllRates());
+        }
+    }, []);
 
     return (
         <div className={styles.container}>

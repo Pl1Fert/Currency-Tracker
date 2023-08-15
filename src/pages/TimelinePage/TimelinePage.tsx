@@ -6,7 +6,7 @@ import { QUOTES_CARDS_ROW } from "@/constants";
 import { ICurrencyCard } from "@/interfaces/cardsTypes";
 import { CurrencyService, DateService } from "@/services";
 import { RootState } from "@/store";
-import { calculateDateDiff } from "@/utils";
+import { calculateDateDiff, combineClassNames } from "@/utils";
 
 import { IProps, IState } from "./timeLinePage.interfaces";
 
@@ -57,11 +57,11 @@ class TimelinePage extends PureComponent<Props, IState> {
                     <select
                         defaultValue="USD"
                         onChange={this.handleOptionChange}
-                        className={
+                        className={combineClassNames(
+                            styles.select!,
+                            styles.selectDarkTheme!,
                             darkTheme
-                                ? `${styles.select} ${styles.selectDarkTheme}`
-                                : `${styles.select}`
-                        }>
+                        )}>
                         {CurrencyService.getCurrencySymbols().map((symbol) => (
                             <option key={symbol} value={symbol}>
                                 {symbol}
@@ -77,19 +77,19 @@ class TimelinePage extends PureComponent<Props, IState> {
                             />
                             <div>
                                 <h1
-                                    className={
+                                    className={combineClassNames(
+                                        styles.cardTitle!,
+                                        styles.cardTitleDarkTheme!,
                                         darkTheme
-                                            ? `${styles.cardTitle} ${styles.cardTitleDarkTheme}`
-                                            : `${styles.cardTitle}`
-                                    }>
+                                    )}>
                                     {selectedCard?.title}
                                 </h1>
                                 <p
-                                    className={
+                                    className={combineClassNames(
+                                        styles.cardText!,
+                                        styles.cardTextDarkTheme!,
                                         darkTheme
-                                            ? `${styles.cardText} ${styles.cardTextDarkTheme}`
-                                            : `${styles.cardText}`
-                                    }>
+                                    )}>
                                     {selectedCard?.symbol}
                                 </p>
                             </div>

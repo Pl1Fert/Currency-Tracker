@@ -3,13 +3,14 @@ import { FC } from "react";
 import { CONTACTS_LINKS } from "@/constants";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import styles from "./contactsPage.module.scss";
 
 const ContactsPage: FC = () => {
     const darkTheme = useAppSelector(themeSelector);
 
-    const linkStyles = darkTheme ? `${styles.link} ${styles.linkDarkTheme}` : `${styles.link}`;
+    const linkStyles = combineClassNames(styles.link!, styles.linkDarkTheme!, darkTheme);
 
     return (
         <div>

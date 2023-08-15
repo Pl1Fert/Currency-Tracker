@@ -3,6 +3,7 @@ import { memo } from "react";
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import { CurrencyCardsRowProps } from "./currencyCardsRow.interfaces";
 
@@ -13,10 +14,7 @@ export const CurrencyCardsRow = memo<CurrencyCardsRowProps>(({ title, cards, rat
 
     return (
         <section>
-            <p
-                className={
-                    darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
-                }>
+            <p className={combineClassNames(styles.title!, styles.titleDarkTheme!, darkTheme)}>
                 {title}
             </p>
             <hr className={styles.border} />

@@ -21,7 +21,7 @@ const getPreviousDates = (): string[] => {
 };
 
 const isCurrencyDateExpired = (timeToCheck: string): boolean => {
-    const time = Date.parse(timeToCheck) - Date.now();
+    const time = Date.parse(timeToCheck.slice(0, 10)) - Date.now();
     const hours = time / 1000 / 60 / 60;
     if (hours > 12 || !hours) {
         return true;

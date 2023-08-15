@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import { StockCardProps } from "./stockCard.interfaces";
 
@@ -12,29 +13,25 @@ export const StockCard = memo<StockCardProps>(({ text = "No Info", card }) => {
 
     return (
         <div
-            className={
-                darkTheme
-                    ? `${styles.stockCard} ${styles.stockCardDarkTheme}`
-                    : `${styles.stockCard}`
-            }>
+            className={combineClassNames(styles.stockCard!, styles.stockCardDarkTheme!, darkTheme)}>
             <div>
                 <img src={card.icon} alt="title" className={styles.icon} />
             </div>
             <div>
                 <p
-                    className={
+                    className={combineClassNames(
+                        styles.cardTitle!,
+                        styles.cardTitleDarkTheme!,
                         darkTheme
-                            ? `${styles.cardTitle} ${styles.cardTitleDarkTheme}`
-                            : `${styles.cardTitle}`
-                    }>
+                    )}>
                     {card.title}
                 </p>
                 <p
-                    className={
+                    className={combineClassNames(
+                        styles.cardText!,
+                        styles.cardTextDarkTheme!,
                         darkTheme
-                            ? `${styles.cardText} ${styles.cardTextDarkTheme}`
-                            : `${styles.cardText}`
-                    }>
+                    )}>
                     {text}
                 </p>
             </div>

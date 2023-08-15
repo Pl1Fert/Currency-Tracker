@@ -17,3 +17,9 @@ export const makeRatesMap = (rates: ICurrencyRate[]): Map<string, number> => {
 
     return mapRates;
 };
+
+export const combineClassNames = (
+    firstClassName: string,
+    secondClassName: string,
+    darkTheme: boolean
+): string => (darkTheme ? `${firstClassName} ${secondClassName}` : firstClassName);

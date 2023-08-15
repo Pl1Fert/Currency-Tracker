@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { CurrencyService } from "@/services";
 import { RootState } from "@/store";
-import { getFilteredSymbols } from "@/utils";
+import { combineClassNames, getFilteredSymbols } from "@/utils";
 
 import { IProps, IState } from "./search.interfaces";
 
@@ -46,10 +46,7 @@ class Search extends PureComponent<Props, IState> {
 
         return (
             <div>
-                <h1
-                    className={
-                        darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
-                    }>
+                <h1 className={combineClassNames(styles.title!, styles.titleDarkTheme!, darkTheme)}>
                     Search currency in the bank
                 </h1>
                 <div className={styles.inputContainer}>
@@ -58,37 +55,37 @@ class Search extends PureComponent<Props, IState> {
                         placeholder="Сurrency search..."
                         value={inputValue}
                         onChange={this.handleChange}
-                        className={
+                        className={combineClassNames(
+                            styles.input!,
+                            styles.inputDarkTheme!,
                             darkTheme
-                                ? `${styles.input} ${styles.inputDarkTheme}`
-                                : `${styles.input}`
-                        }
+                        )}
                         onClick={this.handleInputClick}
                     />
                     <ul
-                        className={
+                        className={combineClassNames(
+                            styles.currencyList!,
+                            styles.currencyListDarkTheme!,
                             darkTheme
-                                ? `${styles.currencyList} ${styles.currencyListDarkTheme}`
-                                : `${styles.currencyList}`
-                        }>
+                        )}>
                         {inputValue.length !== 0 &&
                             isListOpen &&
                             filteredSymbols.map((symbol) => (
                                 <li
                                     key={symbol}
-                                    className={
+                                    className={combineClassNames(
+                                        styles.currencyListItem!,
+                                        styles.currencyListItemDarkTheme!,
                                         darkTheme
-                                            ? `${styles.currencyListItem} ${styles.currencyListItemDarkTheme}`
-                                            : `${styles.currencyListItem}`
-                                    }>
+                                    )}>
                                     <button
                                         type="button"
                                         onClick={this.handleItemClick}
-                                        className={
+                                        className={combineClassNames(
+                                            styles.currencyListItemButton!,
+                                            styles.currencyListItemButtonDarkTheme!,
                                             darkTheme
-                                                ? `${styles.currencyListItemButton} ${styles.currencyListItemButtonDarkTheme}`
-                                                : `${styles.currencyListItemButton}`
-                                        }>
+                                        )}>
                                         {symbol}
                                     </button>
                                 </li>

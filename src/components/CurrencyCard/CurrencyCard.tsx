@@ -4,6 +4,7 @@ import { Modal } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { modalActions } from "@/store/modalSlice";
 import { modalSelector, themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import { CurrencyCardProps } from "./currencyCard.interfaces";
 
@@ -22,11 +23,11 @@ export const CurrencyCard = memo<CurrencyCardProps>(({ text = "No Info", card })
         <>
             {cardIdToOpenModal === card.id && <Modal card={card} />}
             <div
-                className={
+                className={combineClassNames(
+                    styles.currencyCard!,
+                    styles.currencyCardDarkTheme!,
                     darkTheme
-                        ? `${styles.currencyCard} ${styles.currencyCardDarkTheme}`
-                        : `${styles.currencyCard}`
-                }
+                )}
                 onClick={handleClick}
                 onKeyDown={handleClick}
                 tabIndex={0}
@@ -36,19 +37,19 @@ export const CurrencyCard = memo<CurrencyCardProps>(({ text = "No Info", card })
                 </div>
                 <div>
                     <p
-                        className={
+                        className={combineClassNames(
+                            styles.cardTitle!,
+                            styles.cardTitleDarkTheme!,
                             darkTheme
-                                ? `${styles.cardTitle} ${styles.cardTitleDarkTheme}`
-                                : `${styles.cardTitle}`
-                        }>
+                        )}>
                         {card.title}
                     </p>
                     <p
-                        className={
+                        className={combineClassNames(
+                            styles.cardText!,
+                            styles.cardTextDarkTheme!,
                             darkTheme
-                                ? `${styles.cardText} ${styles.cardTextDarkTheme}`
-                                : `${styles.cardText}`
-                        }>
+                        )}>
                         {text}
                     </p>
                 </div>

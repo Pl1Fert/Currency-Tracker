@@ -3,6 +3,7 @@ import { memo } from "react";
 import { StockCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
+import { combineClassNames } from "@/utils";
 
 import { StocksCardsRowProps } from "./stocksCardsRow.interfaces";
 
@@ -13,10 +14,7 @@ export const StocksCardsRow = memo<StocksCardsRowProps>(({ title, cards }) => {
 
     return (
         <section>
-            <p
-                className={
-                    darkTheme ? `${styles.title} ${styles.titleDarkTheme}` : `${styles.title}`
-                }>
+            <p className={combineClassNames(styles.title!, styles.titleDarkTheme!, darkTheme)}>
                 {title}
             </p>
             <hr className={styles.border} />

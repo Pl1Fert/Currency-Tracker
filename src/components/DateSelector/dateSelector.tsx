@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { DateService } from "@/services";
 import { RootState } from "@/store";
+import { combineClassNames } from "@/utils";
 
 import { IProps, IState } from "./dateSelector.interfaces";
 
@@ -31,11 +32,11 @@ class DateSelector extends PureComponent<Props, IState> {
                 name={name}
                 defaultValue={dates.at(defaultValue)}
                 onChange={this.handleDateChange}
-                className={
+                className={combineClassNames(
+                    styles.dateSelector!,
+                    styles.dateSelectorDarkTheme!,
                     darkTheme
-                        ? `${styles.dateSelector} ${styles.dateSelectorDarkTheme}`
-                        : `${styles.dateSelector}`
-                }>
+                )}>
                 {dates.map((date) => (
                     <option value={date} key={date}>
                         {date}
