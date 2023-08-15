@@ -13,3 +13,13 @@
     width: 90%;
     margin: 0 auto;
 }
+
+.loading {
+    color: $dark-background;
+
+    text-align: center;
+
+    &DarkTheme {
+        color: $light-background;
+    }
+}

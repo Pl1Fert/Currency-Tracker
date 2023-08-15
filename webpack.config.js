@@ -61,6 +61,7 @@ module.exports = {
             "@interfaces": path.resolve(__dirname, "src/interfaces/"),
             "@utils": path.resolve(__dirname, "src/utils/"),
             "@containers": path.resolve(__dirname, "src/containers/"),
+            "@styles": path.resolve(__dirname, "src/styles/"),
         },
         fallback: {
             crypto: false,
