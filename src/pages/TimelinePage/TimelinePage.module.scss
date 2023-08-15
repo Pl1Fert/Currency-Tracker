@@ -25,6 +25,15 @@
 
         color: $black-font;
     }
+
+    @media screen and (max-width: 975px) {
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 14px;
+    }
 }
 
 .card {
@@ -42,6 +51,10 @@
         &DarkTheme {
             color: $white-font;
         }
+
+        @media screen and (max-width: 500px) {
+            font-size: 14px;
+        }
     }
 
     &Text {
@@ -52,6 +65,10 @@
         &DarkTheme {
             color: $white-font;
         }
+
+        @media screen and (max-width: 500px) {
+            font-size: 13px;
+        }
     }
 }
 
@@ -60,6 +77,10 @@
     align-items: center;
     justify-content: start;
     gap: 100px;
+
+    @media screen and (max-width: 975px) {
+        flex-direction: column;
+    }
 }
 
 .dateSelectors {
@@ -69,20 +90,9 @@
     gap: 20px;
 }
 
-.dateSelector {
-    border: 1px solid $black;
-
-    color: $black-font;
-
-    font: inherit;
-    font-size: 24px;
-
-    outline: none;
-    cursor: pointer;
-
-    &DarkTheme {
-        border: 1px solid $white;
-
-        color: $black-font;
+.icon {
+    @media screen and (max-width: 500px) {
+        width: 30px;
+        height: 30px;
     }
 }

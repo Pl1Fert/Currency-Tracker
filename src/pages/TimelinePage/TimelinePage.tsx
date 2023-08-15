@@ -1,17 +1,17 @@
 import { Component, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
-import { Chart, Notification, NotificationDisplay } from "@/components";
+import { Chart, DateSelector, Notification, NotificationDisplay } from "@/components";
 import { QUOTES_CARDS_ROW } from "@/constants";
 import { ICurrencyCard } from "@/interfaces/cardsTypes";
 import { CurrencyService, DateService } from "@/services";
 import { RootState } from "@/store";
+import { calculateDateDiff } from "@/utils";
 
 import { IProps, IState } from "./timeLinePage.interfaces";
 
 import styles from "./timeLinePage.module.scss";
 
-// eslint-disable-next-line react/prefer-stateless-function
 class TimelinePage extends Component<Props, IState> {
     private cards = QUOTES_CARDS_ROW.cards;
 
@@ -21,7 +21,6 @@ class TimelinePage extends Component<Props, IState> {
         super(props);
         this.state = {
             selectedCard: this.cards.at(0),
-            dates: DateService.getPreviousDates(),
             startDate: DateService.getPreviousDates().at(-1) as string,
             endDate: DateService.getPreviousDates().at(0) as string,
         };
@@ -36,22 +35,20 @@ class TimelinePage extends Component<Props, IState> {
         this.setState((prevState) => ({ ...prevState, selectedCard: card }));
     };
 
-    handleStartDateChange = (e: SyntheticEvent): void => {
-        const target = e.target as HTMLInputElement;
+    handleStartDateChange = (startDate: string): void => {
         const { endDate } = this.state;
-        this.notification.setDiff(DateService.calculateDateDiff(target.value, endDate));
-        this.setState((prevState) => ({ ...prevState, startDate: target.value }));
+        this.notification.setDiff(calculateDateDiff(startDate, endDate));
+        this.setState((prevState) => ({ ...prevState, startDate }));
     };
 
-    handleEndDateChange = (e: SyntheticEvent): void => {
-        const target = e.target as HTMLInputElement;
+    handleEndDateChange = (endDate: string): void => {
         const { startDate } = this.state;
-        this.notification.setDiff(DateService.calculateDateDiff(startDate, target.value));
-        this.setState((prevState) => ({ ...prevState, endDate: target.value }));
+        this.notification.setDiff(calculateDateDiff(startDate, endDate));
+        this.setState((prevState) => ({ ...prevState, endDate }));
     };
 
     override render() {
-        const { selectedCard, dates, startDate, endDate } = this.state;
+        const { selectedCard, startDate, endDate } = this.state;
         const { darkTheme } = this.props;
 
         return (
@@ -73,7 +70,11 @@ class TimelinePage extends Component<Props, IState> {
                     </select>
                     <div className={styles.row}>
                         <div className={styles.card}>
-                            <img src={selectedCard?.icon ?? ""} alt={selectedCard?.symbol} />
+                            <img
+                                src={selectedCard?.icon ?? ""}
+                                alt={selectedCard?.symbol ?? ""}
+                                className={styles.icon}
+                            />
                             <div>
                                 <h1
                                     className={
@@ -94,36 +95,16 @@ class TimelinePage extends Component<Props, IState> {
                             </div>
                         </div>
                         <div className={styles.dateSelectors}>
-                            <select
+                            <DateSelector
                                 name="startDate"
-                                defaultValue={dates.at(-1)}
-                                onChange={this.handleStartDateChange}
-                                className={
-                                    darkTheme
-                                        ? `${styles.dateSelector} ${styles.dateSelectorDarkTheme}`
-                                        : `${styles.dateSelector}`
-                                }>
-                                {dates.map((date) => (
-                                    <option value={date} key={date}>
-                                        {date}
-                                    </option>
-                                ))}
-                            </select>
-                            <select
+                                defaultValue={-1}
+                                handleChange={this.handleStartDateChange}
+                            />
+                            <DateSelector
                                 name="endDate"
-                                defaultValue={dates.at(0)}
-                                onChange={this.handleEndDateChange}
-                                className={
-                                    darkTheme
-                                        ? `${styles.dateSelector} ${styles.dateSelectorDarkTheme}`
-                                        : `${styles.dateSelector}`
-                                }>
-                                {dates.map((date) => (
-                                    <option value={date} key={date}>
-                                        {date}
-                                    </option>
-                                ))}
-                            </select>
+                                defaultValue={0}
+                                handleChange={this.handleEndDateChange}
+                            />
                         </div>
                     </div>
                 </div>

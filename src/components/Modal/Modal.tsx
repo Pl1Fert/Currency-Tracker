@@ -48,24 +48,13 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
             .catch(() => {});
     }, [currencyState.toCurrencyOption]);
 
-    const handleFromCurrencyAmountChange = (e: SyntheticEvent) => {
+    const handleCurrencyAmountChange = (e: SyntheticEvent) => {
         const target = e.target as HTMLInputElement;
         setCurrencyState(
             (prevState): IState => ({
                 ...prevState,
                 currencyAmount: Number(target.value),
-                amountInFromCurrency: true,
-            })
-        );
-    };
-
-    const handleToCurrencyAmountChange = (e: SyntheticEvent) => {
-        const target = e.target as HTMLInputElement;
-        setCurrencyState(
-            (prevState): IState => ({
-                ...prevState,
-                currencyAmount: Number(target.value),
-                amountInFromCurrency: false,
+                amountInFromCurrency: target.name !== "toCurrencyInput",
             })
         );
     };
@@ -87,18 +76,20 @@ export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
                     <div className={styles.row}>
                         <input
                             type="number"
+                            name="fromCurrencyInput"
                             value={fromCurrencyAmount}
                             className={styles.input}
-                            onChange={handleFromCurrencyAmountChange}
+                            onChange={handleCurrencyAmountChange}
                         />
                         <p className={styles.symbol}>{card.symbol}</p>
                     </div>
                     <div className={styles.row}>
                         <input
                             type="number"
+                            name="toCurrencyInput"
                             value={toCurrencyAmount}
                             className={styles.input}
-                            onChange={handleToCurrencyAmountChange}
+                            onChange={handleCurrencyAmountChange}
                         />
                         <select
                             name="currencyOption"

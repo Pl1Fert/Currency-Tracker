@@ -1,19 +1,18 @@
-/* eslint-disable simple-import-sort/imports */
-
-import { Chart as ChartJS, registerables, TimeSeriesScale, Tooltip } from "chart.js";
-import { Chart as ChartComponent } from "react-chartjs-2";
-import "chartjs-adapter-date-fns";
 import React from "react";
+import { Chart as ChartComponent } from "react-chartjs-2";
+import { Chart as ChartJS, registerables, TimeSeriesScale, Tooltip } from "chart.js";
 
+import { CurrencyService } from "@/services";
+
+import "chartjs-adapter-date-fns";
+
+import { ChartConfig } from "./chart.config";
 import { IProps, IState } from "./chart.interfaces";
 
 import styles from "./chart.module.scss";
-import { ChartConfig } from "./chart.config";
-import { CurrencyService } from "@/services";
 
 ChartJS.register(Tooltip, TimeSeriesScale, ...registerables);
 
-// eslint-disable-next-line react/prefer-stateless-function
 export class Chart extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);

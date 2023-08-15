@@ -71,6 +71,8 @@
                 "namedComponents": "arrow-function",
                 "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "react/prefer-stateless-function": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }

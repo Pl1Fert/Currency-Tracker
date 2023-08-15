@@ -8,7 +8,6 @@ import { IProps, IState } from "./mapComponent.interfaces";
 
 import styles from "./mapComponent.module.scss";
 
-// eslint-disable-next-line react/prefer-stateless-function
 export class MapComponent extends Component<IProps, IState> {
     private mapContainer = createRef<HTMLDivElement>();
 

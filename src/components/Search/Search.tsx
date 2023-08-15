@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { CurrencyService } from "@/services";
 import { RootState } from "@/store";
+import { getFilteredSymbols } from "@/utils";
 
 import { IProps, IState } from "./search.interfaces";
 
@@ -41,9 +42,7 @@ class Search extends Component<Props, IState> {
         const { isListOpen } = this.state;
         const { inputValue, darkTheme } = this.props;
         const symbols: string[] = CurrencyService.getCurrencySymbols();
-        const filteredSymbols = symbols
-            .filter((symbol) => symbol.toLowerCase().includes(inputValue.toLowerCase()))
-            .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+        const filteredSymbols = getFilteredSymbols(symbols, inputValue);
 
         return (
             <div>

@@ -6,7 +6,6 @@ import { IProps, IState } from "./bankCardPage.interfaces";
 
 import styles from "./bankCardPage.module.scss";
 
-// eslint-disable-next-line react/prefer-stateless-function
 export default class BankCardPage extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
