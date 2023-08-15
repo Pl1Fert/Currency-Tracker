@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 
 import { FooterItem } from "@/components";
 import { useAppSelector } from "@/hooks";
@@ -8,7 +8,7 @@ import { FooterListProps } from "./footerList.interfaces";
 
 import styles from "./footerList.module.scss";
 
-export const FooterList: FC<FooterListProps> = ({ title, links }) => {
+export const FooterList = memo<FooterListProps>(({ title, links }) => {
     const darkTheme = useAppSelector(themeSelector);
 
     return (
@@ -28,4 +28,4 @@ export const FooterList: FC<FooterListProps> = ({ title, links }) => {
             </ul>
         </div>
     );
-};
+});

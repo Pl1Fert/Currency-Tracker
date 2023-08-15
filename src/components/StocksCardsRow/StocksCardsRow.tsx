@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 
 import { StockCard } from "@/components";
 import { useAppSelector } from "@/hooks";
@@ -8,7 +8,7 @@ import { StocksCardsRowProps } from "./stocksCardsRow.interfaces";
 
 import styles from "./stocksCardsRow.module.scss";
 
-export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
+export const StocksCardsRow = memo<StocksCardsRowProps>(({ title, cards }) => {
     const darkTheme = useAppSelector(themeSelector);
 
     return (
@@ -27,4 +27,4 @@ export const StocksCardsRow: FC<StocksCardsRowProps> = ({ title, cards }) => {
             </div>
         </section>
     );
-};
+});

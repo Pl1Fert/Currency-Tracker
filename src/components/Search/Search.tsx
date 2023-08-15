@@ -1,4 +1,4 @@
-import { Component, SyntheticEvent } from "react";
+import { PureComponent, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { CurrencyService } from "@/services";
@@ -9,7 +9,7 @@ import { IProps, IState } from "./search.interfaces";
 
 import styles from "./search.module.scss";
 
-class Search extends Component<Props, IState> {
+class Search extends PureComponent<Props, IState> {
     constructor(props: Props) {
         super(props);
         this.state = {

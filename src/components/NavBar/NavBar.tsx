@@ -14,7 +14,7 @@ export const NavBar: FC = () => {
     const dispatch = useAppDispatch();
     const darkTheme = useAppSelector(themeSelector);
 
-    const handleClick = (e: SyntheticEvent) => {
+    const handleClick = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
         if (target.value === darkTheme.toString()) {
             return;

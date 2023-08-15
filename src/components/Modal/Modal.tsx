@@ -53,7 +53,7 @@ export const Modal: FC<ModalProps> = ({ card }) => {
             .catch(() => {});
     }, [currencyState.toCurrencyOption]);
 
-    const handleCurrencyAmountChange = (e: SyntheticEvent) => {
+    const handleCurrencyAmountChange = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
         setCurrencyState(
             (prevState): IState => ({
@@ -64,7 +64,7 @@ export const Modal: FC<ModalProps> = ({ card }) => {
         );
     };
 
-    const handleToCurrecyOptionChange = (e: SyntheticEvent) => {
+    const handleToCurrecyOptionChange = (e: SyntheticEvent): void => {
         const target = e.target as HTMLInputElement;
         setCurrencyState(
             (prevState): IState => ({
@@ -74,7 +74,7 @@ export const Modal: FC<ModalProps> = ({ card }) => {
         );
     };
 
-    const handleClose = () => {
+    const handleClose = (): void => {
         dispatch(modalActions.closeModal());
     };
 

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
@@ -7,7 +7,7 @@ import { StockCardProps } from "./stockCard.interfaces";
 
 import styles from "./stockCard.module.scss";
 
-export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {
+export const StockCard = memo<StockCardProps>(({ text = "No Info", card }) => {
     const darkTheme = useAppSelector(themeSelector);
 
     return (
@@ -40,4 +40,4 @@ export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {
             </div>
         </div>
     );
-};
+});

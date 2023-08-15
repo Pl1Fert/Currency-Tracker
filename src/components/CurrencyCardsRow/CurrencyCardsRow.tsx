@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 
 import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
@@ -8,7 +8,7 @@ import { CurrencyCardsRowProps } from "./currencyCardsRow.interfaces";
 
 import styles from "./currencyCardsRow.module.scss";
 
-export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
+export const CurrencyCardsRow = memo<CurrencyCardsRowProps>(({ title, cards, rates }) => {
     const darkTheme = useAppSelector(themeSelector);
 
     return (
@@ -35,4 +35,4 @@ export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rate
             </div>
         </section>
     );
-};
+});

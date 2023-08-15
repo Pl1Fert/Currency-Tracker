@@ -1,4 +1,4 @@
-import { Component, SyntheticEvent } from "react";
+import { PureComponent, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { DateService } from "@/services";
@@ -8,7 +8,7 @@ import { IProps, IState } from "./dateSelector.interfaces";
 
 import styles from "./dateSelector.module.scss";
 
-class DateSelector extends Component<Props, IState> {
+class DateSelector extends PureComponent<Props, IState> {
     constructor(props: Props) {
         super(props);
         this.state = {

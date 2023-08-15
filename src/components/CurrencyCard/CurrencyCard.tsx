@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 
 import { Modal } from "@/components";
 import { useAppDispatch, useAppSelector } from "@/hooks";
@@ -9,12 +9,12 @@ import { CurrencyCardProps } from "./currencyCard.interfaces";
 
 import styles from "./currencyCard.module.scss";
 
-export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card }) => {
+export const CurrencyCard = memo<CurrencyCardProps>(({ text = "No Info", card }) => {
     const darkTheme = useAppSelector(themeSelector);
     const cardIdToOpenModal = useAppSelector(modalSelector);
     const dispatch = useAppDispatch();
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         dispatch(modalActions.openModal(card.id));
     };
 
@@ -55,4 +55,4 @@ export const CurrencyCard: FC<CurrencyCardProps> = ({ text = "No Info", card }) 
             </div>
         </>
     );
-};
+});

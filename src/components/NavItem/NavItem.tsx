@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { memo } from "react";
 import { Link, useMatch } from "react-router-dom";
 
 import { useAppSelector } from "@/hooks";
@@ -8,7 +8,7 @@ import { NavItemProps } from "./navItem.interfaces";
 
 import styles from "./navItem.module.scss";
 
-export const NavItem: FC<NavItemProps> = ({ to, title }) => {
+export const NavItem = memo<NavItemProps>(({ to, title }) => {
     const match = useMatch({
         path: to,
         end: to.length === 1,
@@ -29,4 +29,4 @@ export const NavItem: FC<NavItemProps> = ({ to, title }) => {
             {title}
         </Link>
     );
-};
+});

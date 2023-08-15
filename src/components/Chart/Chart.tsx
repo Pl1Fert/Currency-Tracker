@@ -1,4 +1,4 @@
-import React from "react";
+import { PureComponent } from "react";
 import { Chart as ChartComponent } from "react-chartjs-2";
 import { Chart as ChartJS, registerables, TimeSeriesScale, Tooltip } from "chart.js";
 
@@ -13,7 +13,7 @@ import styles from "./chart.module.scss";
 
 ChartJS.register(Tooltip, TimeSeriesScale, ...registerables);
 
-export class Chart extends React.Component<IProps, IState> {
+export class Chart extends PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
