@@ -1,4 +1,4 @@
-import { Component, SyntheticEvent } from "react";
+import { PureComponent, SyntheticEvent } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import { Chart, DateSelector, Notification, NotificationDisplay } from "@/components";
@@ -12,7 +12,7 @@ import { IProps, IState } from "./timeLinePage.interfaces";
 
 import styles from "./timeLinePage.module.scss";
 
-class TimelinePage extends Component<Props, IState> {
+class TimelinePage extends PureComponent<Props, IState> {
     private cards = QUOTES_CARDS_ROW.cards;
 
     private notification = new Notification();

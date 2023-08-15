@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { DateService } from "@/services";
 import { getAllRates } from "@/store/currencySlice";
 import { currencySelector } from "@/store/selectors";
+import { makeRatesMap } from "@/utils";
 
 import styles from "./homePage.module.scss";
 
@@ -18,15 +19,13 @@ const HomePage: FC = () => {
         dispatch(getAllRates());
     }
 
-    const mapRates = new Map<string, number>();
-    currency.rates.map((rate) => mapRates.set(rate.symbol, rate.value));
     return (
         <div className={styles.container}>
             <StocksCardsRow title={STOCKS_CARDS_ROW.title} cards={STOCKS_CARDS_ROW.cards} />
             <CurrencyCardsRow
                 title={QUOTES_CARDS_ROW.title}
                 cards={QUOTES_CARDS_ROW.cards}
-                rates={mapRates}
+                rates={makeRatesMap(currency.rates)}
             />
         </div>
     );

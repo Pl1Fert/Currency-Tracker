@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { IReturnCurrencyHistory } from "@/interfaces/currencyTypes";
 
 export interface IProps {
@@ -17,7 +15,7 @@ export interface IData {
         {
             label: string;
             data: IReturnCurrencyHistory[];
-            backgroundColor: (ctx: any) => "rgba(22,199,130)" | "rgba(234,57,67)";
+            backgroundColor: (ctx: any) => string;
         },
     ];
 }

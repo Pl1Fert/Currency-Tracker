@@ -1,16 +1,18 @@
 import { IData } from "./chart.interfaces";
 
+import styles from "./chart.module.scss";
+
 const data: IData = {
     datasets: [
         {
             label: "Chart",
             data: [],
-            backgroundColor: (ctx: any) => {
+            backgroundColor: (ctx: any): string => {
                 const {
                     raw: { o, c },
                 } = ctx;
 
-                return c >= o ? "rgba(22,199,130)" : "rgba(234,57,67)";
+                return c >= o ? `${styles.greenColor}` : `${styles.redColor}`;
             },
         },
     ],
@@ -35,7 +37,7 @@ const options = {
                 tooltipFormat: "MMM d, yyyy",
             },
             grid: {
-                color: "rgba(71,71,71, 0.5)",
+                color: `${styles.greyColor}`,
             },
         },
         y: {
@@ -43,7 +45,7 @@ const options = {
             beginAtZero: false,
             position: "right" as const,
             grid: {
-                color: "rgba(71,71,71,0.5)",
+                color: `${styles.greyColor}`,
             },
         },
     },
@@ -82,7 +84,7 @@ const candlestick = {
 
         data.datasets[0].data.forEach((dataPoint: any, index: number): void => {
             const { o, c } = dataPoint;
-            ctx.strokeStyle = c >= o ? "rgba(22,199,130)" : "rgba(234,57,67)";
+            ctx.strokeStyle = c >= o ? `${styles.greenColor}` : `${styles.redColor}`;
 
             ctx.beginPath();
             ctx.moveTo(
@@ -114,7 +116,6 @@ const crosshair = {
     afterDatasetsDraw(chart: any): void {
         const {
             ctx,
-            // eslint-disable-next-line @typescript-eslint/no-shadow
             chartArea: { top, bottom, left, right, height },
             tooltip,
             scales: { x, y },
@@ -123,7 +124,7 @@ const crosshair = {
             const activePoint = tooltip._active[0];
             ctx.setLineDash([3, 3]);
             ctx.setLineWidth = 2;
-            ctx.strokeStyle = "rgba(102, 102, 102, 1)";
+            ctx.strokeStyle = `${styles.lightGreyColor}`;
 
             const lines = (startX: any, startY: any, endX: any, endY: any): void => {
                 ctx.beginPath();
