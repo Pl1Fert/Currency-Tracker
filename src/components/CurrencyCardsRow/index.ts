@@ -1,1 +1,1 @@
-export * from "./CurrencyCardsRow";
+export * from "./currencyCardsRow";

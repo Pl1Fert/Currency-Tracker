@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import styles from "./LoadingSpinner.module.scss";
+import styles from "./loadingSpinner.module.scss";
 
 export const LoadingSpinner: FC = () => (
     <div className={styles.ring}>

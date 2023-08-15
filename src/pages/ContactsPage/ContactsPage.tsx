@@ -3,7 +3,7 @@ import { FC } from "react";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import styles from "./ContactsPage.module.scss";
+import styles from "./contactsPage.module.scss";
 
 interface ContactsPageProps {}
 

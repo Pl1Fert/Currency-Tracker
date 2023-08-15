@@ -1,4 +1,4 @@
-import { ICurrencyCard } from "@/types/cardsTypes";
+import { ICurrencyCard } from "@/interfaces/cardsTypes";
 
 export interface CurrencyCardProps {
     card: ICurrencyCard;

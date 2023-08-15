@@ -5,7 +5,7 @@ import { NavBar } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import styles from "./Header.module.scss";
+import styles from "./header.module.scss";
 
 export const Header: FC = () => {
     const darkTheme = useAppSelector(themeSelector);

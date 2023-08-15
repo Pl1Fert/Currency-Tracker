@@ -4,8 +4,8 @@ import { CurrencyCard } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import { CurrencyCardsRowProps } from "./CurrencyCardsRow.interfaces";
-import styles from "./CurrencyCardsRow.module.scss";
+import { CurrencyCardsRowProps } from "./currencyCardsRow.interfaces";
+import styles from "./currencyCardsRow.module.scss";
 
 export const CurrencyCardsRow: FC<CurrencyCardsRowProps> = ({ title, cards, rates }) => {
     const darkTheme = useAppSelector(themeSelector);

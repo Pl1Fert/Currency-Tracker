@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 import { themeActions } from "@/store/themeSlice";
 
-import styles from "./NavBar.module.scss";
+import styles from "./navBar.module.scss";
 
 export const NavBar: FC = () => {
     const dispatch = useAppDispatch();

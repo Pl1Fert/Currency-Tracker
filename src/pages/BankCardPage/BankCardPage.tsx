@@ -2,8 +2,8 @@ import { Component } from "react";
 
 import { MapComponent, Search } from "@/components";
 
-import { IProps, IState } from "./BankCardPage.interfaces";
-import styles from "./BankCardPage.module.scss";
+import { IProps, IState } from "./bankCardPage.interfaces";
+import styles from "./bankCardPage.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class BankCardPage extends Component<IProps, IState> {

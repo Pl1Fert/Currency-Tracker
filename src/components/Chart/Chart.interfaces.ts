@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { IReturnCurrencyHistory } from "@/types/currencyTypes";
+import { IReturnCurrencyHistory } from "@/interfaces/currencyTypes";
 
 export interface IProps {
     symbol: string | undefined;

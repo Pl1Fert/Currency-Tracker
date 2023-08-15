@@ -6,7 +6,7 @@ import { FOOTER_LISTS } from "@/constants";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import styles from "./Footer.module.scss";
+import styles from "./footer.module.scss";
 
 export const Footer: FC = () => {
     const darkTheme = useAppSelector(themeSelector);

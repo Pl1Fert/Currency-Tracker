@@ -5,7 +5,7 @@ import { Footer, Header } from "@/components";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import styles from "./Layout.module.scss";
+import styles from "./layout.module.scss";
 
 export const Layout: FC = () => {
     const darkTheme = useAppSelector(themeSelector);

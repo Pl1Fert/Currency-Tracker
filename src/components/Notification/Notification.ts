@@ -1,16 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-export interface INotification {
-    diff: number;
-    subscribers: any[];
-    subscribe(functionToSubscribe: any): void;
-    unsubscribe(functionToUnsubscribe: any): void;
-    setDiff(newDiff: number): void;
-}
+import { INotification } from "./notification.interfaces";
 
 export class Notification implements INotification {
     diff = 30;

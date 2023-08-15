@@ -4,10 +4,10 @@ import { CurrencyCardsRow, StocksCardsRow } from "@/components";
 import { QUOTES_CARDS_ROW, STOCKS_CARDS_ROW } from "@/constants";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { DateService } from "@/services";
+import { getAllRates } from "@/store/currencySlice";
 import { currencySelector } from "@/store/selectors";
 
-import { getAllRates } from "../../store/currencySlice";
-import styles from "./HomePage.module.scss";
+import styles from "./homePage.module.scss";
 
 const HomePage: FC = () => {
     const dispatch = useAppDispatch();

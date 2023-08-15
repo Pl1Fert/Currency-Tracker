@@ -5,10 +5,10 @@ import { Chart as ChartComponent } from "react-chartjs-2";
 import "chartjs-adapter-date-fns";
 import React from "react";
 
-import { IProps, IState } from "./Chart.interfaces";
+import { IProps, IState } from "./chart.interfaces";
 
-import styles from "./Chart.module.scss";
-import { ChartConfig } from "./Chart.config";
+import styles from "./chart.module.scss";
+import { ChartConfig } from "./chart.config";
 import { CurrencyService } from "@/services";
 
 ChartJS.register(Tooltip, TimeSeriesScale, ...registerables);

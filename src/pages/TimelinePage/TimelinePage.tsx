@@ -3,12 +3,12 @@ import { connect, ConnectedProps } from "react-redux";
 
 import { Chart, Notification, NotificationDisplay } from "@/components";
 import { QUOTES_CARDS_ROW } from "@/constants";
+import { ICurrencyCard } from "@/interfaces/cardsTypes";
 import { CurrencyService, DateService } from "@/services";
 import { RootState } from "@/store";
-import { ICurrencyCard } from "@/types/cardsTypes";
 
-import { IProps, IState } from "./TimelinePage.interfaces";
-import styles from "./TimelinePage.module.scss";
+import { IProps, IState } from "./timeLinePage.interfaces";
+import styles from "./timeLinePage.module.scss";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TimelinePage extends Component<Props, IState> {

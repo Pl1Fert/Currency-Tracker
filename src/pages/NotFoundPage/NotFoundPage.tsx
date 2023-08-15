@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.svg";
 import { AppRoutes } from "@/constants";
 
-import styles from "./NotFoundPage.module.scss";
+import styles from "./notFoundPage.module.scss";
 
 const NotFoundPage: FC = () => (
     <section>

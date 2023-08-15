@@ -1,11 +1,3 @@
-// const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY;
-// const CURRENCY_API_URL = process.env.CURRENCY_API_URL;
-// const { COIN_API_KEY } = process.env;
-// const { COIN_API_URL } = process.env;
-// const { MAPBOX_API_KEY } = process.env;
-// const { TRIPMAP_API_KEY } = process.env;
-// const { TRIPMAP_API_URL } = process.env;
-
 export const ENV_VARS = {
     CURRENCY_API_KEY: process.env.CURRENCY_API_KEY,
     CURRENCY_API_URL: process.env.CURRENCY_API_URL,

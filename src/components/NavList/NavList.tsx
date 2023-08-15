@@ -3,7 +3,7 @@ import { FC } from "react";
 import { NavItem } from "@/components";
 import { NAV_LINKS } from "@/constants";
 
-import styles from "./NavList.module.scss";
+import styles from "./navList.module.scss";
 
 export const NavList: FC = () => (
     <ul className={styles.navList}>

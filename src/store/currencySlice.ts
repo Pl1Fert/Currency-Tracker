@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import { ICurrencyRate, ICurrencyRateResponse, ICurrencyRates } from "@/interfaces/currencyTypes";
 import { CurrencyService } from "@/services";
-import { ICurrencyRate, ICurrencyRateResponse, ICurrencyRates } from "@/types/currencyTypes";
 
 const initialState: ICurrencyRates = {
     last_updated_at: "",

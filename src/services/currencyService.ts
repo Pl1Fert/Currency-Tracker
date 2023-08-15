@@ -6,7 +6,7 @@ import {
     ICurrencyHistory,
     ICurrencyRateResponse,
     IReturnCurrencyHistory,
-} from "@/types/currencyTypes";
+} from "@/interfaces/currencyTypes";
 
 const getCurrencyExchangeRateHistory = async (
     from: string,

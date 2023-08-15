@@ -1,1 +1,1 @@
-export * from "./NotificationDisplay";
+export * from "./notificationDisplay";

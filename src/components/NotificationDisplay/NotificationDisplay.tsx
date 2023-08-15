@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { FC, useEffect, useState } from "react";
 
-import { INotification } from "../Notification/Notification";
+import { INotification } from "@/components/Notification/notification.interfaces";
+
 import styles from "./NotificationDisplay.module.scss";
 
 interface IProps {

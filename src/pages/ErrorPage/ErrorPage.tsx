@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import logo from "@/assets/logo.svg";
 
-import styles from "./ErrorPage.module.scss";
+import styles from "./errorPage.module.scss";
 
 const ErrorPage: FC = () => (
     <section>

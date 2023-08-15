@@ -1,4 +1,4 @@
-import { ICurrencyRates } from "@/types/currencyTypes";
+import { ICurrencyRates } from "@/interfaces/currencyTypes";
 
 interface ITheme {
     darkTheme: boolean;

@@ -4,12 +4,12 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import { Layout } from "@/components";
 import { AppRoutes } from "@/constants";
 
-const BankCardPage = lazy(() => import("@/pages/BankCardPage/BankCardPage"));
-const ContactsPage = lazy(() => import("@/pages/ContactsPage/ContactsPage"));
-const ErrorPage = lazy(() => import("@/pages/ErrorPage/ErrorPage"));
-const HomePage = lazy(() => import("@/pages/HomePage/HomePage"));
-const NotFoundPage = lazy(() => import("@/pages/NotFoundPage/NotFoundPage"));
-const TimelinePage = lazy(() => import("@/pages/TimelinePage/TimelinePage"));
+const BankCardPage = lazy(() => import("@/pages/BankCardPage/bankCardPage"));
+const ContactsPage = lazy(() => import("@/pages/ContactsPage/contactsPage"));
+const ErrorPage = lazy(() => import("@/pages/ErrorPage/errorPage"));
+const HomePage = lazy(() => import("@/pages/HomePage/homePage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage/notFoundPage"));
+const TimelinePage = lazy(() => import("@/pages/TimelinePage/timeLinePage"));
 
 export const MainRouter = createBrowserRouter(
     createRoutesFromElements(

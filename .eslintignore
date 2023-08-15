@@ -4,3 +4,5 @@ yarn.lock
 webpack.config.js
 webpack.config.dev.js
 webpack.config.prod.js
+/src/components/Chart/chart.config.ts
+/src/components/Notification

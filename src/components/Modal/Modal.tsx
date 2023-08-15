@@ -3,8 +3,8 @@ import { createPortal } from "react-dom";
 
 import { CurrencyService } from "@/services";
 
-import { IState, ModalProps } from "./Modal.interfaces";
-import styles from "./Modal.module.scss";
+import { IState, ModalProps } from "./modal.interfaces";
+import styles from "./modal.module.scss";
 
 export const Modal: FC<ModalProps> = ({ closeModal, card }) => {
     const initialState: IState = {

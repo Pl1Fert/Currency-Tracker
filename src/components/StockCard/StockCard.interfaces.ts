@@ -1,4 +1,4 @@
-import { IStockCard } from "@/types/cardsTypes";
+import { IStockCard } from "@/interfaces/cardsTypes";
 
 export interface StockCardProps {
     card: IStockCard;

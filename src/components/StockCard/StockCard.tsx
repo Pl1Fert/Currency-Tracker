@@ -3,8 +3,8 @@ import { FC } from "react";
 import { useAppSelector } from "@/hooks";
 import { themeSelector } from "@/store/selectors";
 
-import { StockCardProps } from "./StockCard.interfaces";
-import styles from "./StockCard.module.scss";
+import { StockCardProps } from "./stockCard.interfaces";
+import styles from "./stockCard.module.scss";
 
 export const StockCard: FC<StockCardProps> = ({ text = "No Info", card }) => {
     const darkTheme = useAppSelector(themeSelector);

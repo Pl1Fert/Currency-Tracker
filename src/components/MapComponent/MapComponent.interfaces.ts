@@ -1,4 +1,4 @@
-import { ICoords, INewFeature } from "@/types/mapTypes";
+import { ICoords, INewFeature } from "@/interfaces/mapTypes";
 
 export interface IState {
     features: INewFeature[];

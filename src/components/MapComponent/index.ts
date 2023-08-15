@@ -1,1 +1,1 @@
-export * from "./MapComponent";
+export * from "./mapComponent";

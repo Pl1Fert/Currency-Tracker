@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { ENV_VARS } from "@/constants";
-import { IBanks, ICoords, IFeature, INewFeature } from "@/types/mapTypes";
+import { IBanks, ICoords, IFeature, INewFeature } from "@/interfaces/mapTypes";
 
 import { CurrencyService } from "./currencyService";
 
