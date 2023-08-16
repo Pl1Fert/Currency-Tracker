@@ -3,7 +3,7 @@ import { memo, useEffect, useState } from "react";
 
 import { INotification } from "@/components/Notification/notification.interfaces";
 
-import styles from "./NotificationDisplay.module.scss";
+import styles from "./notificationDisplay.module.scss";
 
 interface IProps {
     notification: INotification;
