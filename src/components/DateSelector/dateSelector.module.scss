@@ -1,0 +1,23 @@
+@import "@/styles/colors";
+
+.dateSelector {
+    border: 1px solid $black;
+
+    color: $black-font;
+
+    font: inherit;
+    font-size: 24px;
+
+    outline: none;
+    cursor: pointer;
+
+    &DarkTheme {
+        border: 1px solid $white;
+
+        color: $black-font;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 14px;
+    }
+}

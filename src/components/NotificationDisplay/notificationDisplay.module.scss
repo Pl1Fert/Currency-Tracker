@@ -1,0 +1,29 @@
+@import "@/styles/colors";
+
+.notification {
+    position: fixed;
+    top: 5%;
+    right: 0;
+
+    width: fit-content;
+    height: 45px;
+    padding: 10px;
+
+    text-align: left;
+    font-size: 20px;
+
+    background-color: $white;
+
+    opacity: 1;
+    animation: fade 2s linear forwards;
+}
+
+@keyframes fade {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}

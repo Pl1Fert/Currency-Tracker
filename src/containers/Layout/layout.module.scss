@@ -1,0 +1,25 @@
+@import "../../styles/colors";
+
+.container {
+    background-color: $light-background;
+
+    &DarkTheme {
+        background-color: $dark-background;
+    }
+}
+
+.wrapper {
+    max-width: 1460px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.loading {
+    color: $dark-background;
+
+    text-align: center;
+
+    &DarkTheme {
+        color: $light-background;
+    }
+}

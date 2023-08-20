@@ -1,0 +1,47 @@
+@import "@/styles/colors";
+
+.navItem {
+    font-size: 20px;
+
+    color: $black-font;
+    transition: all 0.3s linear;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+
+        background: $black-font;
+        transition: all 0.3s linear;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+
+    &Active {
+        cursor: default;
+        pointer-events: none;
+
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &DarkTheme {
+        color: $white-font;
+
+        &::after {
+            background: $white-font;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        font-size: 18px;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 13px;
+    }
+}

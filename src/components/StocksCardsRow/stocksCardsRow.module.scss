@@ -1,0 +1,38 @@
+@import "@/styles/colors";
+
+.title {
+    color: $black-font;
+    font-size: 32px;
+
+    &DarkTheme {
+        color: $white-font;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 15px;
+    }
+}
+
+.cardsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+
+    @media screen and (max-width: 1250px) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+
+    @media screen and (max-width: 500px) {
+        gap: 30px;
+    }
+}
+
+.border {
+    max-width: 520px;
+    border-color: $grey;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}

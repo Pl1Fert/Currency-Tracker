@@ -1,0 +1,104 @@
+@import "@/styles/colors";
+
+.navList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+
+    transition: all 0.3s linear;
+
+    @media screen and (max-width: 900px) {
+        gap: 50px;
+    }
+
+    @media screen and (max-width: 700px) {
+        gap: 25px;
+    }
+
+    @media screen and (max-width: 600px) {
+        position: fixed;
+        visibility: hidden;
+        top: -100%;
+        left: 50%;
+
+        width: 100%;
+        gap: 20px;
+        padding: 20px 0;
+        flex-direction: column;
+
+        transform: translateX(-50%);
+        background-color: $white;
+        z-index: 10;
+
+        &DarkTheme {
+            background-color: $black;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        gap: 15px;
+    }
+
+    @media screen and (max-width: 400px) {
+        gap: 11px;
+    }
+}
+
+.menuBtn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+
+    @media screen and (min-width: 600px) {
+        display: none;
+    }
+}
+
+.menuBtn > span,
+.menuBtn > span::before,
+.menuBtn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $grey;
+}
+
+.menuBtn > span::before {
+    content: "";
+    top: -8px;
+}
+
+.menuBtn > span::after {
+    content: "";
+    top: 8px;
+}
+
+#menuToggle {
+    position: absolute;
+    opacity: 0;
+}
+
+#menuToggle:checked ~ .menuBtn > span {
+    transform: rotate(45deg);
+}
+
+#menuToggle:checked ~ .menuBtn > span::before {
+    top: 0;
+    transform: rotate(0);
+}
+
+#menuToggle:checked ~ .menuBtn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menuToggle:checked ~ .navList {
+    visibility: visible;
+    top: 7%;
+}

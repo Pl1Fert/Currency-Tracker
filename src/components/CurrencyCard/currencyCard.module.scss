@@ -1,0 +1,70 @@
+@import "@/styles/colors";
+
+.currencyCard {
+    width: 520px;
+    height: 153px;
+    padding: 30px;
+    padding-right: 0;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    background-color: $white;
+    border: 1px solid $grey;
+    border-radius: 8px;
+
+    transition: all 0.3s linear;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &DarkTheme {
+        background-color: $dark-grey;
+    }
+
+    @media screen and (max-width: 750px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 62px;
+    }
+}
+
+.cardTitle {
+    font-weight: 400;
+    color: $black-font;
+    font-size: 35px;
+
+    &DarkTheme {
+        color: $light-grey-font;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 14px;
+    }
+}
+
+.cardText {
+    color: $black-font;
+    font-size: 32px;
+
+    &DarkTheme {
+        color: $grey-font;
+    }
+
+    @media screen and (max-width: 500px) {
+        font-size: 13px;
+    }
+}
+
+.icon {
+    @media screen and (max-width: 500px) {
+        width: 30px;
+        height: 30px;
+    }
+}
