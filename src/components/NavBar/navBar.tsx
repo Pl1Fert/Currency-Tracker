@@ -24,6 +24,19 @@ export const NavBar: FC = () => {
         dispatch(themeActions.toggleTheme());
     };
 
+    const radiosConfig = [
+        {
+            id: styles.falseRadio,
+            value: "false",
+            defaultChecked: !darkTheme,
+        },
+        {
+            id: styles.trueRadio,
+            value: "true",
+            defaultChecked: darkTheme,
+        },
+    ];
+
     return (
         <nav className={styles.navBar}>
             <Link to={AppRoutes.HOME}>
@@ -31,24 +44,17 @@ export const NavBar: FC = () => {
             </Link>
             <NavList />
             <div className={combineClassNames(styles.radios!, styles.radiosDarkTheme!, darkTheme)}>
-                <input
-                    type="radio"
-                    id={styles.falseRadio}
-                    className={styles.input}
-                    name="theme"
-                    value="false"
-                    defaultChecked={!darkTheme}
-                    onClick={handleClick}
-                />
-                <input
-                    type="radio"
-                    id={styles.trueRadio}
-                    className={styles.input}
-                    name="theme"
-                    value="true"
-                    defaultChecked={darkTheme}
-                    onClick={handleClick}
-                />
+                {radiosConfig.map(({ id, value, defaultChecked }) => (
+                    <input
+                        type="radio"
+                        className={styles.input}
+                        name="theme"
+                        onClick={handleClick}
+                        id={id}
+                        value={value}
+                        defaultChecked={defaultChecked}
+                    />
+                ))}
             </div>
         </nav>
     );
