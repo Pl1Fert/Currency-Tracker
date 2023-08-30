@@ -8,14 +8,14 @@ import { StockCardProps } from "./stockCard.interfaces";
 
 import styles from "./stockCard.module.scss";
 
-export const StockCard = memo<StockCardProps>(({ text = "No Info", card }) => {
+export const StockCard = memo<StockCardProps>(({ text = "No Info", card: { icon, title } }) => {
     const darkTheme = useAppSelector(themeSelector);
 
     return (
         <div
             className={combineClassNames(styles.stockCard!, styles.stockCardDarkTheme!, darkTheme)}>
             <div>
-                <img src={card.icon} alt="title" className={styles.icon} />
+                <img src={icon} alt="title" className={styles.icon} />
             </div>
             <div>
                 <p
@@ -24,7 +24,7 @@ export const StockCard = memo<StockCardProps>(({ text = "No Info", card }) => {
                         styles.cardTitleDarkTheme!,
                         darkTheme
                     )}>
-                    {card.title}
+                    {title}
                 </p>
                 <p
                     className={combineClassNames(

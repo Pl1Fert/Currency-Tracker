@@ -2,5 +2,5 @@ import { IStockCard } from "@/interfaces/cardsTypes";
 
 export interface StockCardProps {
     card: IStockCard;
-    text?: string;
+    text: string | null;
 }

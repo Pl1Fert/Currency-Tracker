@@ -18,9 +18,9 @@ export const FooterList = memo<FooterListProps>(({ title, links }) => {
                 {title}
             </h2>
             <ul className={styles.list}>
-                {links.map((link) => (
-                    <li key={link.id}>
-                        <FooterItem title={link.title} />
+                {links.map(({ id, title: footerTitle }) => (
+                    <li key={id}>
+                        <FooterItem title={footerTitle} />
                     </li>
                 ))}
             </ul>

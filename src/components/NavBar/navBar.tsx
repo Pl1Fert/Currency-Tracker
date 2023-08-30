@@ -37,6 +37,7 @@ export const NavBar: FC = () => {
                     className={styles.input}
                     name="theme"
                     value="false"
+                    defaultChecked={!darkTheme}
                     onClick={handleClick}
                 />
                 <input

@@ -19,14 +19,10 @@ const ContactsPage: FC = () => {
                     Phone: +375 (29) 999-99-99
                 </a>
                 <ul className={styles.list}>
-                    {CONTACTS_LINKS.map((link) => (
-                        <li key={link.id}>
-                            <a
-                                href={link.dest}
-                                className={linkStyles}
-                                target="_blank"
-                                rel="noreferrer">
-                                {link.name}
+                    {CONTACTS_LINKS.map(({ id, dest, name }) => (
+                        <li key={id}>
+                            <a href={dest} className={linkStyles} target="_blank" rel="noreferrer">
+                                {name}
                             </a>
                         </li>
                     ))}
