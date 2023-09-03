@@ -36,7 +36,7 @@ export const NavBar: FC = () => {
             defaultChecked: darkTheme,
         },
     ];
-
+        
     return (
         <nav className={styles.navBar}>
             <Link to={AppRoutes.HOME}>
