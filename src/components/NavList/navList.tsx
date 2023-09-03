@@ -18,9 +18,9 @@ export const NavList: FC = () => {
                 <span />
             </label>
             <ul className={combineClassNames(styles.navList!, styles.navListDarkTheme!, darkTheme)}>
-                {NAV_LINKS.map((link) => (
-                    <li key={link.id}>
-                        <NavItem to={link.dest} title={link.title} />
+                {NAV_LINKS.map(({ id, dest, title }) => (
+                    <li key={id}>
+                        <NavItem to={dest} title={title} />
                     </li>
                 ))}
             </ul>

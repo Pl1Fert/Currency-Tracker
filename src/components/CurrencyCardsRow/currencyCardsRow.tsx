@@ -26,7 +26,7 @@ export const CurrencyCardsRow = memo<CurrencyCardsRowProps>(({ title, cards, rat
                         text={
                             rates?.get(card.symbol)
                                 ? `R$ ${rates?.get(card.symbol)?.toFixed(2)}`
-                                : undefined
+                                : null
                         }
                     />
                 ))}

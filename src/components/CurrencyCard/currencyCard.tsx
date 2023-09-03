@@ -10,50 +10,52 @@ import { CurrencyCardProps } from "./currencyCard.interfaces";
 
 import styles from "./currencyCard.module.scss";
 
-export const CurrencyCard = memo<CurrencyCardProps>(({ text = "No Info", card }) => {
-    const darkTheme = useAppSelector(themeSelector);
-    const cardIdToOpenModal = useAppSelector(modalSelector);
-    const dispatch = useAppDispatch();
+export const CurrencyCard = memo<CurrencyCardProps>(
+    ({ text = "No Info", card: { id, icon, title }, card }) => {
+        const darkTheme = useAppSelector(themeSelector);
+        const cardIdToOpenModal = useAppSelector(modalSelector);
+        const dispatch = useAppDispatch();
 
-    const handleClick = (): void => {
-        dispatch(modalActions.openModal(card.id));
-    };
+        const handleClick = (): void => {
+            dispatch(modalActions.openModal(id));
+        };
 
-    return (
-        <>
-            {cardIdToOpenModal === card.id && <Modal card={card} />}
-            <div
-                className={combineClassNames(
-                    styles.currencyCard!,
-                    styles.currencyCardDarkTheme!,
-                    darkTheme
-                )}
-                onClick={handleClick}
-                onKeyDown={handleClick}
-                tabIndex={0}
-                role="button">
-                <div>
-                    <img src={card.icon} alt="title" className={styles.icon} />
+        return (
+            <>
+                {cardIdToOpenModal === id && <Modal card={card} />}
+                <div
+                    className={combineClassNames(
+                        styles.currencyCard!,
+                        styles.currencyCardDarkTheme!,
+                        darkTheme
+                    )}
+                    onClick={handleClick}
+                    onKeyDown={handleClick}
+                    tabIndex={0}
+                    role="button">
+                    <div>
+                        <img src={icon} alt="title" className={styles.icon} />
+                    </div>
+                    <div>
+                        <p
+                            className={combineClassNames(
+                                styles.cardTitle!,
+                                styles.cardTitleDarkTheme!,
+                                darkTheme
+                            )}>
+                            {title}
+                        </p>
+                        <p
+                            className={combineClassNames(
+                                styles.cardText!,
+                                styles.cardTextDarkTheme!,
+                                darkTheme
+                            )}>
+                            {text}
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <p
-                        className={combineClassNames(
-                            styles.cardTitle!,
-                            styles.cardTitleDarkTheme!,
-                            darkTheme
-                        )}>
-                        {card.title}
-                    </p>
-                    <p
-                        className={combineClassNames(
-                            styles.cardText!,
-                            styles.cardTextDarkTheme!,
-                            darkTheme
-                        )}>
-                        {text}
-                    </p>
-                </div>
-            </div>
-        </>
-    );
-});
+            </>
+        );
+    }
+);
